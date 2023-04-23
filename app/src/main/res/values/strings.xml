@@ -1,3 +1,13 @@
 <resources>
     <string name="app_name">CCN</string>
+    <string name="REGISTER">REGISTER</string>
+    <string name="first_name">First Name</string>
+    <string name="last_name">Last Name</string>
+    <string name="username">Username</string>
+    <string name="organization_email_address">Organization Email Address</string>
+    <string name="password">Password</string>
+    <string name="security_question">Security Question</string>
+    <string name="answer">Answer</string>
+    <string name="next">NEXT</string>
+    <string name="already_a_member_login">Already a Member? Login</string>
 </resources>
