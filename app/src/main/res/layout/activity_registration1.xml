@@ -102,7 +102,8 @@
                 android:padding="8dp"
                 android:textColor="@color/black"
                 android:textColorHighlight="@color/cardview_dark_background"/>
-            <com.google.android.material.textfield.TextInputEditText
+            <Spinner
+
                 android:id="@+id/secutity_Question"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
@@ -112,8 +113,10 @@
                 android:drawablePadding="8dp"
                 android:hint="@string/security_question"
                 android:padding="8dp"
+                android:entries="@array/Security_Question"
                 android:textColor="@color/black"
                 android:textColorHighlight="@color/cardview_dark_background"/>
+
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/secutity_Question_answer"
                 android:layout_width="match_parent"
