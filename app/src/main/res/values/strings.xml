@@ -9,4 +9,6 @@
     <string name="security_question">Security Question</string>
     <string name="security_question_answer">Answer</string>
     <string name="select_item">Select_item</string>
+    <string name="login_email">Email</string>
+    <string name="login_password">Password</string>
 </resources>

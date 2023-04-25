@@ -31,7 +31,8 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(dsp);
                 finish();
             }
-        },4000);
+        },3000);
+
 
     }
 }

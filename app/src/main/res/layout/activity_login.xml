@@ -36,27 +36,27 @@
                 android:textStyle="bold" />
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/username"
+                android:id="@+id/login_Email"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:layout_marginTop="40dp"
                 android:background="@drawable/custom_edittext"
-                android:drawableLeft="@drawable/baseline_person_24"
+                android:drawableLeft="@drawable/baseline_email_24"
                 android:drawablePadding="8dp"
-                android:hint="Username"
+                android:hint="@string/login_email"
                 android:padding="8dp"
                 android:textColor="@color/black"
                 android:textColorHighlight="@color/cardview_dark_background" />
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/password"
+                android:id="@+id/login_password"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:layout_marginTop="20dp"
                 android:background="@drawable/custom_edittext"
                 android:drawableLeft="@drawable/baseline_lock_24"
                 android:drawablePadding="8dp"
-                android:hint="Password"
+                android:hint="@string/login_password"
                 android:inputType="textPassword"
                 android:padding="8dp"
                 android:textColor="@color/black"
