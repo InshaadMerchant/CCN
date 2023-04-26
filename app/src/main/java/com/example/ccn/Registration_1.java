@@ -30,7 +30,7 @@ public class Registration_1 extends AppCompatActivity{
     TextInputEditText regName, regUsername, regEmail, regPassword, security_answer, regReenterPassword ;
     Button regNextButton, regtoLoginButton;
 //    String[] Security_Questions = getResources().getStringArray(R.array.Security_Question);
-
+    public static String regsuccess= "passkey";
     private Spinner Security_Question;
     FirebaseAuth mAuth,userAuth;
     OAuthProvider.Builder provider = OAuthProvider.newBuilder("microsoft.com");
@@ -133,6 +133,10 @@ public class Registration_1 extends AppCompatActivity{
             return true;
         }
     }
+    public void isloggedin()
+    {
+
+    }
 
     @SuppressLint("MissingInflatedId")
     @Override
@@ -161,6 +165,12 @@ public class Registration_1 extends AppCompatActivity{
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent (Registration_1.this,Login.class);
+
+                if( mAuth.getCurrentUser()!=null)
+                {
+                    Toast.makeText(Registration_1.this, "user logged in.",
+                            Toast.LENGTH_SHORT).show();
+                }
                 FirebaseAuth.getInstance().signOut();
                 startActivity(intent);
                 finish();
@@ -171,7 +181,7 @@ public class Registration_1 extends AppCompatActivity{
             @Override
             public void onClick(View v) {
                     boolean is_verified = false;
-                provider.addCustomParameter("login_hint","@mavs.uta.edu");
+//                provider.addCustomParameter("login_hint","@mavs.uta.edu");
                 provider.addCustomParameter("tenant","mavs.uta.edu");
                 reference = rootNode.getReference();
                     //Get all Values and convert them to String
@@ -183,16 +193,17 @@ public class Registration_1 extends AppCompatActivity{
                     String security_question="jdskj";
                     RegistrationHelperClass helperClass = new RegistrationHelperClass(name,username,password,email,security_question,security_question_answer);
 //                    reference.child(username).setValue(helperClass);
-                    Toast.makeText(Registration_1.this, "Verification Email has been sent.",
-                            Toast.LENGTH_SHORT).show();
+//                    Toast.makeText(Registration_1.this, "Verification Email has been sent.",
+//                            Toast.LENGTH_SHORT).show();
 //
-                    mAuth
-                            .startActivityForSignInWithProvider(Registration_1.this , provider.build())
-                            .addOnSuccessListener(
+                    mAuth.startActivityForSignInWithProvider(Registration_1.this , provider.build()).addOnSuccessListener(
                                     new OnSuccessListener<AuthResult>() {
                                         @Override
                                         public void onSuccess(AuthResult authResult) {
-                                            Toast.makeText(Registration_1.this, "Verification Email has been sent.",
+//                                            Intent intent= new Intent(Registration_1.this,registeration_success.class);
+//                                            intent.putExtra(regsuccess,authResult.getAdditionalUserInfo().getUsername().toString());
+//                                            startActivity(intent);
+                                            Toast.makeText(Registration_1.this, "WORKING",
                                                     Toast.LENGTH_SHORT).show();
                                             // User is signed in.
                                             // IdP data available in
@@ -204,22 +215,20 @@ public class Registration_1 extends AppCompatActivity{
                                             // ((OAuthCredential)authResult.getCredential()).getAccessToken().
                                             // The OAuth secret can be retrieved by calling:
                                             // ((OAuthCredential)authResult.getCredential()).getSecret().
+
                                         }
                                     })
                             .addOnFailureListener(
                                     new OnFailureListener() {
                                         @Override
                                         public void onFailure(@NonNull Exception e) {
+                                            Toast.makeText(Registration_1.this, "Verification Email has been sent.",
+                                            Toast.LENGTH_SHORT).show();
                                             // Handle failure.
                                             return;
                                         }
                                     });
-//                    if(is_verified)
-//                    {
-//                        reference.child(username).setValue(helperClass);
-//                    }
 
-//                    FirebaseAuth.getInstance().signOut();
             }
         });
 
