@@ -1,35 +1,80 @@
 package com.example.ccn;
 
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.view.GravityCompat;
+import androidx.drawerlayout.widget.DrawerLayout;
 
-import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
-import android.widget.Button;
-import android.widget.TextView;
+import android.view.MenuItem;
+import android.widget.Toast;
 
-import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
-
+import com.google.android.material.navigation.NavigationView;
 
 public class MainActivity extends AppCompatActivity {
-    FirebaseAuth auth;
-    TextView textView;
-    FirebaseUser user;
-
+    DrawerLayout drawerLayout;
+    NavigationView navigationView;
+    ActionBarDrawerToggle drawerToggle;
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item){
+        if (drawerToggle.onOptionsItemSelected(item))
+        {
+            return true;
+        }
+        return super.onOptionsItemSelected(item);
+    }
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        /*
-        auth = FirebaseAuth.getInstance();
-        user = auth.getCurrentUser();
-        //Not sure if these are needed
-         */
-
-        Intent intent = new Intent(getApplicationContext(), Customized_feed.class);
-        startActivity(intent);
-        finish();
+        drawerLayout = findViewById(R.id.drawer_layout);
+        navigationView = findViewById(R.id.nav_view);
+        drawerToggle = new ActionBarDrawerToggle(this,drawerLayout,R.string.open,R.string.close);
+        drawerLayout.addDrawerListener(drawerToggle);
+        drawerToggle.syncState();
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem item)
+            {
+                switch(item.getItemId())
+                {
+                    case R.id.home:
+                    {
+                        Toast.makeText(MainActivity.this, "home selected", Toast.LENGTH_SHORT).show();
+                        break;
+                    }
+                    case R.id.about:
+                    {
+                        Toast.makeText(MainActivity.this, "about selected", Toast.LENGTH_SHORT).show();
+                        break;
+                    }
+                    case R.id.logout:
+                    {
+                        Toast.makeText(MainActivity.this, "logout selected", Toast.LENGTH_SHORT).show();
+                        break;
+                    }
+                    case R.id.share:
+                    {
+                        Toast.makeText(MainActivity.this, "share selected", Toast.LENGTH_SHORT).show();
+                        break;
+                    }
+                }
+                return false;
+            }
+        });
+    }
+    @Override
+    public void onBackPressed(){
+        if(drawerLayout.isDrawerOpen(GravityCompat.START))
+        {
+            drawerLayout.closeDrawer(GravityCompat.START);
+        }
+        else
+        {
+            super.onBackPressed();
+        }
     }
 }
