@@ -16,7 +16,7 @@ public class FeedAdapter extends RecyclerView.Adapter<FeedAdapter.MyViewHolder> 
     ArrayList<Model> mlist;
     Context context;
 
-    public FeedAdapter(Context context, ArrayList<Model> mList) {
+    public FeedAdapter(Context context, ArrayList<Model> mlist) {
         this.mlist = mlist;
         this.context = context;
     }
@@ -31,9 +31,7 @@ public class FeedAdapter extends RecyclerView.Adapter<FeedAdapter.MyViewHolder> 
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
         Model model = mlist.get(position);
-        holder.user.setText(model.getUser());
-        holder.location.setText(model.getLocation());
-        holder.preview.setText(model.getPreview());
+        holder.title.setText(model.getTitle());
         holder.subject.setText(model.getSubject());
     }
 
@@ -45,15 +43,13 @@ public class FeedAdapter extends RecyclerView.Adapter<FeedAdapter.MyViewHolder> 
     public static class MyViewHolder extends RecyclerView.ViewHolder{
 
 
-        TextView user, subject, location, preview;
+        TextView title, subject;
 
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
 
-            user = itemView.findViewById(R.id.user_text);
+            title = itemView.findViewById(R.id.title_text);
             subject = itemView.findViewById(R.id.subject_text);
-            location = itemView.findViewById(R.id.location_text);
-            preview = itemView.findViewById(R.id.preview_text);
         }
     }
 }
