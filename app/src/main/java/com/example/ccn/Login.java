@@ -12,32 +12,23 @@ import android.widget.Button;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.android.material.textfield.TextInputLayout;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.auth.OAuthProvider;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 public class Login extends AppCompatActivity {
-    /*private Boolean validateemail(){
-        String val = LoginEmail.getText().toString();
-        String emailPattern = "[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+";
-        if (val.isEmpty()) {
-            LoginEmail.setError("Field cannot be empty");
-            return false;
-        } else if (!val.matches(emailPattern)) {
-            LoginEmail.setError("Invalid email address");
-            return false;
-        }else if(!val.contains(".edu")){
-            LoginEmail.setError("Use your Organization Email to Register");
-            return false;
-        }
-        else {
-            LoginEmail.setError(null);
-            return true;
-        }
-    }*/
+
     private Boolean validatePassword() {
         String val1 = LoginPassword.getText().toString();
         String passwordVal = "^" +
@@ -55,64 +46,99 @@ public class Login extends AppCompatActivity {
         } else if (!val1.matches(passwordVal)) {
             LoginPassword.setError("Password is too weak");
             return false;
-        }
-        else {
+        } else {
             LoginPassword.setError(null);
             return true;
         }
     }
-    Button CallSignUp,LoginButton;
+
+    Button CallSignUp, LoginButton, Registeration;
     TextInputEditText LoginEmail, LoginPassword;
-    FirebaseAuth mAuth;
+    FirebaseAuth mAuth = FirebaseAuth.getInstance();
+    OAuthProvider.Builder provider = OAuthProvider.newBuilder("microsoft.com");
+    FirebaseDatabase instance= FirebaseDatabase.getInstance();
+    DatabaseReference user_idref = instance.getReference().child("user_id");
+    boolean is_user=false;
 
     @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_login);
-        CallSignUp= findViewById(R.id.signup_button);
+        CallSignUp = findViewById(R.id.signup_button);
+        LoginButton = findViewById(R.id.loginButton);
+        Registeration= findViewById(R.id.register);
         CallSignUp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent (Login.this,Registration_1.class);
+                Intent intent = new Intent(Login.this, Registration_1.class);
                 startActivity(intent);
             }
         });
-        mAuth = FirebaseAuth.getInstance();
-        LoginEmail = findViewById(R.id.login_Email);
-        LoginPassword = findViewById(R.id.login_password);
-        LoginButton = findViewById(R.id.loginButton);
         LoginButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if( !validatePassword()){
-                    return;
-                }
-                String email,password;
-                email = String.valueOf(LoginEmail.getText());
-                password = String.valueOf(LoginPassword.getText());
-                mAuth.signInWithEmailAndPassword(email, password)
-                        .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
-                            @Override
-                            public void onComplete(@NonNull Task<AuthResult> task) {
-                                if (task.isSuccessful()) {
-                                    // Sign in success, update UI with the signed-in user's information
-                                    Toast.makeText(Login.this, "Login Successful.",
-                                            Toast.LENGTH_SHORT).show();
-                                    Intent intent = new Intent(getApplicationContext(), MainActivity.class);
-                                    startActivity(intent);
-                                    finish();
-                                } else {
-                                    // If sign in fails, display a message to the user.
-                                    Toast.makeText(Login.this, "Check your Username or Password",
-                                            Toast.LENGTH_SHORT).show();
-                                }
-                            }
-                        });
+//                Check if User is not registered, If the user is not registered, ask them to sign up
+
+//              Add custom param sets tenant to UTA. This ensures that all authentication takes place through UTA SSO login.
+                provider.addCustomParameter("tenant", "mavs.uta.edu");
+                mAuth.startActivityForSignInWithProvider(Login.this, provider.build()).addOnSuccessListener( new OnSuccessListener<AuthResult>() {
+
+                                    @Override
+                                    public void onSuccess(AuthResult authResult) {
+                                        user_idref.addListenerForSingleValueEvent(
+                                                new ValueEventListener() {
+                                            @Override
+                                            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                                                for(DataSnapshot userid: snapshot.getChildren())
+                                                {
+                                                    String compare= userid.getValue(String.class);
+                                                    if(mAuth.getCurrentUser().getUid().matches(compare))
+                                                    {
+                                                        Toast.makeText(Login.this, "Welcome Back", Toast.LENGTH_SHORT).show();
+                                                        is_user=true;
+                                                    }
+                                                }
+                                                if(!is_user)
+                                                {
+                                                    Toast.makeText(Login.this, "Please sign up first", Toast.LENGTH_SHORT).show();
+                                                    Intent intent = new Intent(Login.this,Registration_1.class);
+                                                    startActivity(intent);
+                                                    finish();
+                                                }
+                                                else
+                                                {
+                                                    Intent intent = new Intent(Login.this, Registration_2.class);
+                                                    startActivity(intent);
+                                                    finish();
+                                                }
+                                            }
+                                            @Override
+                                            public void onCancelled(@NonNull DatabaseError error) {
+                                            }
+                                        });
+
+                                    }
+                                })
+                        .addOnFailureListener(
+                                new OnFailureListener() {
+                                    @Override
+                                    public void onFailure(@NonNull Exception e) {
+                                        Toast.makeText(Login.this, "Login failed. Please try again after restarting the app", Toast.LENGTH_SHORT).show();
+                                        finish();
+                                    }
+                                });
+
             }
         });
-
-
+        Registeration.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Login.this, Registration_1.class);
+                startActivity(intent);
+                finish();
+            }
+        });
     }
 }

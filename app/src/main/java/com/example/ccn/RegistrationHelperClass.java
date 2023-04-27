@@ -1,12 +1,12 @@
 package com.example.ccn;
 
 public class RegistrationHelperClass {
-    String name,username, password, email, security_question,securityquestion_answer;
+    String name,username, description, email, security_question,securityquestion_answer;
 
-    public RegistrationHelperClass(String name, String username, String password, String email, String security_question, String securityquestion_answer) {
+    public RegistrationHelperClass(String name, String username, String description) {
         this.name = name;
         this.username = username;
-        this.password = password;
+        this.description = description;
         this.email = email;
         this.security_question = security_question;
         this.securityquestion_answer = securityquestion_answer;
@@ -31,12 +31,12 @@ public class RegistrationHelperClass {
         this.username = username;
     }
 
-    public String getPassword() {
-        return password;
+    public String getDescription() {
+        return description;
     }
 
-    public void setPassword(String password) {
-        this.password = password;
+    public void setdescription(String description) {
+        this.description = description;
     }
 
     public String getEmail() {
