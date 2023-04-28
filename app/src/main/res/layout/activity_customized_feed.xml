@@ -32,7 +32,6 @@
         android:id="@+id/post_button"
         android:layout_width="48dp"
         android:layout_height="48dp"
-        android:layout_alignBaseline="@+id/post_button"
         android:layout_alignParentEnd="true"
         android:src="@drawable/baseline_post_add_24"
         android:scaleType="centerCrop"
