@@ -11,12 +11,12 @@ import android.widget.ImageButton;
 
 public class post_button
 {
-    private ImageButton post_button;
-    post_button = (ImageButton) findViewById(R.id.post_button);
-    post_button.setOnClickListener(new View.OnClickListener() {
+    public ImageButton postButton;
+    postButton = (ImageButton) findViewById(R.id.post_button);
+    postButton.setOnClickListener(new View.OnClickListener() {
     @Override
     public void onClick(View view) {
-        Intent intent = new Intent(post_button.this, creating_post.class);
+        Intent intent = new Intent(post_button.this, CreatingPost.class);
         startActivity(intent);
     }
 });
