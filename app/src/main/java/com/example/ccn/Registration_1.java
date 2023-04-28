@@ -48,6 +48,16 @@ public class Registration_1 extends AppCompatActivity {
             return true;
         }
     }
+    private Boolean validateDescription() {
+        String val = regDescription.getText().toString();
+        if (val.isEmpty()) {
+            regDescription.setError("This Field is Mandatory");
+            return false;
+        } else {
+            regDescription.setError(null);
+            return true;
+        }
+    }
 
     private Boolean validateUsername() {
         String val = regUsername.getText().toString();
@@ -101,8 +111,8 @@ public class Registration_1 extends AppCompatActivity {
                 String name = regName.getText().toString();
                 String username = regUsername.getText().toString();
                 String description = regDescription.getText().toString();
-                if (name == null || username == null || description == null) {
-
+                if (!validateUsername() | !validateName() | !validateDescription() ) {
+                    return;
                 }
                 RegistrationHelperClass new_user = new RegistrationHelperClass(name, username, description);
                 mAuth.startActivityForSignInWithProvider(Registration_1.this, provider.build()).addOnSuccessListener( new OnSuccessListener<AuthResult>() {
@@ -153,6 +163,5 @@ public class Registration_1 extends AppCompatActivity {
 
             }
         });
-
     }
 }
