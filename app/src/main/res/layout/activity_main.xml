@@ -4,19 +4,20 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/UTA_BLUE"
+    android:background="@drawable/back"
     android:gravity="center"
-    tools:context=".MainActivity">
+    android:id="@+id/back_logo"
+    tools:context=".MainActivity"
+    android:transitionName="layout">
 
     <ImageView
         android:id="@+id/homescreen"
-        android:layout_width="200dp"
-        android:layout_height="200dp"
-        android:src="@drawable/new_transparent"
-        android:layout_gravity="center"
-
-
-
+        android:layout_width="match_parent"
+        android:layout_height="350dp"
+        android:src="@drawable/college_networking"
+        android:layout_gravity="bottom"
+        android:layout_marginBottom="40dp"
+        android:transitionName="college_networking"
         />
 
 </LinearLayout>

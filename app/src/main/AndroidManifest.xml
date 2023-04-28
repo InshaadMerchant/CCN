@@ -14,11 +14,6 @@
         android:theme="@style/Theme.CCN"
         tools:targetApi="31">
         <activity
-            android:name=".postregactivity"
-            android:exported="false"
-            android:label="@string/title_activity_postregactivity"
-            android:theme="@style/Theme.CCN" />
-        <activity
             android:name=".Registration_2"
             android:exported="false" />
         <activity

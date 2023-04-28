@@ -54,4 +54,6 @@
         libero vel nunc consequat, quis tincidunt nisl eleifend. Cras bibendum enim a justo luctus
         vestibulum. Fusce dictum libero quis erat maximus, vitae volutpat diam dignissim.
     </string>
+    <string name="guest_usrbtn">Continue as Guest</string>
+    <string name="tagline">College Networking starts here</string>
 </resources>
