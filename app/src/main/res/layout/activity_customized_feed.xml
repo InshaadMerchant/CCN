@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:gravity="center_horizontal">
+
+    <Button
+        android:layout_marginLeft="40dp"
+        android:id="@+id/edit"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:text="@string/edit" />
+
+    <Button
+        android:layout_marginLeft="40dp"
+        android:id="@+id/delete"
+        android:layout_toRightOf="@id/edit"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:text="@string/delete" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:layout_below="@id/edit"
+        android:id="@+id/recyclerview"
+        android:layout_width="409dp"
+        android:layout_height="729dp"
+        tools:layout_editor_absoluteX="1dp"
+        tools:layout_editor_absoluteY="1dp" />
+    <androidx.appcompat.widget.AppCompatImageButton
+        android:id="@+id/post_button"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:layout_alignBaseline="@+id/post_button"
+        android:layout_alignParentEnd="true"
+        android:src="@drawable/baseline_post_add_24"
+        android:scaleType="centerCrop"
+        android:layout_marginTop="750dp"
+        android:layout_marginRight="12dp"
+        android:background="@color/UTA_blue"
+        android:baselineAlignBottom="false"
+        android:focusableInTouchMode="true"
+        />
+
+</RelativeLayout>
