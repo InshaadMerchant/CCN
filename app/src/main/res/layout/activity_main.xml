@@ -19,21 +19,21 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:gravity="center_horizontal">
 
         <Button
-            android:layout_marginLeft="150dp"
+            android:layout_marginLeft="40dp"
             android:id="@+id/edit"
-            android:layout_width="96dp"
+            android:layout_width="150dp"
             android:layout_height="wrap_content"
             android:text="edit" />
 
         <Button
-            android:layout_marginLeft="28dp"
-
+            android:layout_marginLeft="40dp"
             android:id="@+id/delete"
             android:layout_toRightOf="@id/edit"
-            android:layout_width="96dp"
+            android:layout_width="150dp"
             android:layout_height="wrap_content"
             android:text="delete" />
 
@@ -44,6 +44,7 @@
             android:layout_height="729dp"
             tools:layout_editor_absoluteX="1dp"
             tools:layout_editor_absoluteY="1dp" />
+
     </RelativeLayout>
 
 </androidx.drawerlayout.widget.DrawerLayout>
