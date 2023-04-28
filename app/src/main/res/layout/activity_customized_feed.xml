@@ -7,16 +7,16 @@
     android:gravity="center_horizontal">
 
     <Button
-        android:layout_marginLeft="40dp"
+        android:layout_marginStart="40dp"
         android:id="@+id/edit"
         android:layout_width="150dp"
         android:layout_height="wrap_content"
         android:text="@string/edit" />
 
     <Button
-        android:layout_marginLeft="40dp"
+        android:layout_marginStart="40dp"
         android:id="@+id/delete"
-        android:layout_toRightOf="@id/edit"
+        android:layout_toEndOf="@id/edit"
         android:layout_width="150dp"
         android:layout_height="wrap_content"
         android:text="@string/delete" />
@@ -36,7 +36,7 @@
         android:src="@drawable/baseline_post_add_24"
         android:scaleType="centerCrop"
         android:layout_marginTop="750dp"
-        android:layout_marginRight="12dp"
+        android:layout_marginEnd="12dp"
         android:background="@color/UTA_blue"
         android:baselineAlignBottom="false"
         android:focusableInTouchMode="true"
