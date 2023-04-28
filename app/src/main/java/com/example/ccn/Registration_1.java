@@ -143,7 +143,7 @@ public class Registration_1 extends AppCompatActivity {
                                 new OnFailureListener() {
                                     @Override
                                     public void onFailure(@NonNull Exception e) {
-                                        Toast.makeText(Registration_1.this, "Verification Email has been sent.",
+                                        Toast.makeText(Registration_1.this, "Verification Failed. Try Registering again.",
                                                 Toast.LENGTH_SHORT).show();
                                         return;
                                     }
