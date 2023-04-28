@@ -74,10 +74,10 @@ public class Login extends AppCompatActivity {
                 provider.addCustomParameter("tenant", "mavs.uta.edu");
                 mAuth.startActivityForSignInWithProvider(Login.this, provider.build()).addOnSuccessListener( new OnSuccessListener<AuthResult>() {
 
-                                    @Override
-                                    public void onSuccess(AuthResult authResult) {
-                                        user_idref.addListenerForSingleValueEvent(
-                                                new ValueEventListener() {
+                            @Override
+                            public void onSuccess(AuthResult authResult) {
+                                user_idref.addListenerForSingleValueEvent(
+                                        new ValueEventListener() {
                                             @Override
                                             public void onDataChange(@NonNull DataSnapshot snapshot) {
                                                 for(DataSnapshot userid: snapshot.getChildren())
@@ -108,8 +108,8 @@ public class Login extends AppCompatActivity {
                                             }
                                         });
 
-                                    }
-                                })
+                            }
+                        })
                         .addOnFailureListener(
                                 new OnFailureListener() {
                                     @Override

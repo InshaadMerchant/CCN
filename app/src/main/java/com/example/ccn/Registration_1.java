@@ -89,19 +89,7 @@ public class Registration_1 extends AppCompatActivity {
         regName = findViewById(R.id.reg_name);
         regUsername = findViewById(R.id.reg_username);
         regDescription = findViewById(R.id.description);
-        regtoLoginButton = findViewById(R.id.existing_user);
         regVerify = findViewById(R.id.Verification_button);
-
-
-        regtoLoginButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(Registration_1.this, Login.class);
-                startActivity(intent);
-                finish();
-            }
-        });
-
         regVerify.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
