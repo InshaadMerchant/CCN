@@ -6,6 +6,12 @@
             android:title="@string/home" />
     </group>
 
+    <group android:checkableBehavior="single">
+        <item android:id="@+id/add_post"
+            android:icon="@drawable/baseline_post_add_24"
+            android:title="@string/add_post" />
+    </group>
+
     <item android:title="@string/profile">
         <menu>
             <group android:checkableBehavior="single">

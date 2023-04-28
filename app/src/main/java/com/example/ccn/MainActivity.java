@@ -6,8 +6,11 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.ImageButton;
 import android.widget.Toast;
 
 import com.google.android.material.navigation.NavigationView;
@@ -35,6 +38,7 @@ public class MainActivity extends AppCompatActivity {
         drawerLayout.addDrawerListener(drawerToggle);
         drawerToggle.syncState();
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
         navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item)
@@ -46,14 +50,25 @@ public class MainActivity extends AppCompatActivity {
                         Toast.makeText(MainActivity.this, "home selected", Toast.LENGTH_SHORT).show();
                         break;
                     }
+                    case R.id.add_post:
+                    {
+                        Toast.makeText(MainActivity.this, "Add Post Selected", Toast.LENGTH_SHORT).show();
+                        //Intent intent = new Intent(MainActivity.this, creating_post.class);
+                        //startActivity(intent);
+                        break;
+                    }
                     case R.id.about:
                     {
                         Toast.makeText(MainActivity.this, "about selected", Toast.LENGTH_SHORT).show();
+                        //Intent intent = new Intent(MainActivity.this, profile.class);
+                        //startActivity(intent);
                         break;
                     }
                     case R.id.logout:
                     {
                         Toast.makeText(MainActivity.this, "logout selected", Toast.LENGTH_SHORT).show();
+                        //Intent intent = new Intent(MainActivity.this, login.class);
+                        //startActivity(intent);
                         break;
                     }
                     case R.id.share:
