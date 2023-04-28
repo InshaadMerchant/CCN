@@ -123,7 +123,7 @@ public class Registration_1 extends AppCompatActivity {
                                             startActivity(intent);
                                             finish();
                                         } else {
-                                            root_ref.child("users").child(username).setValue(new_user);
+                                            root_ref.child("users").child(mAuth.getCurrentUser().getUid()).setValue(new_user);
                                             user_idref.child(mAuth.getCurrentUser().getUid()).setValue(mAuth.getCurrentUser().getUid().toString());
                                             Toast.makeText(Registration_1.this, "USER REGISTERED SUCCESSFULLY", Toast.LENGTH_SHORT).show();
                                             Intent intent = new Intent(Registration_1.this, Registration_2.class);
