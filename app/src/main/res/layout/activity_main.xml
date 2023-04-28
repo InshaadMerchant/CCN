@@ -28,7 +28,7 @@
             android:id="@+id/edit"
             android:layout_width="150dp"
             android:layout_height="wrap_content"
-            android:text="edit" />
+            android:text="@string/edit" />
 
         <Button
             android:layout_marginLeft="40dp"
@@ -36,7 +36,7 @@
             android:layout_toRightOf="@id/edit"
             android:layout_width="150dp"
             android:layout_height="wrap_content"
-            android:text="delete" />
+            android:text="@string/delete" />
 
         <androidx.recyclerview.widget.RecyclerView
             android:layout_below="@id/edit"

@@ -10,4 +10,6 @@
     <string name="share">Share</string>
     <string name="add_new_post">Add New Post</string>
     <string name="add_post">Add New Post</string>
+    <string name="edit">edit</string>
+    <string name="delete">delete</string>
 </resources>
