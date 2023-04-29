@@ -109,7 +109,7 @@ public class Login extends AppCompatActivity {
                                                 }
                                                 else
                                                 {
-                                                    Intent intent = new Intent(Login.this, Registration_2.class);
+                                                    Intent intent = new Intent(Login.this, Feed.class);
                                                     startActivity(intent);
                                                     finish();
                                                 }
