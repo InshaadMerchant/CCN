@@ -14,7 +14,7 @@
         android:theme="@style/Theme.CCN"
         tools:targetApi="31">
         <activity
-            android:name=".Registration_2"
+            android:name=".Profile_Manager"
             android:exported="false" />
         <activity
             android:name=".Registration_1"
