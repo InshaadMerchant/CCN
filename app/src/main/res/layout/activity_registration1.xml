@@ -33,7 +33,7 @@
                 android:layout_height="wrap_content"
                 android:text="Sign up"
                 android:textAlignment="center"
-                android:textColor="@color/purple_500"
+                android:textColor="@color/purple_700"
                 android:textSize="36sp"
                 android:textStyle="bold" />
 
@@ -82,7 +82,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="60dp"
                 android:layout_marginTop="30dp"
-                android:backgroundTint="@color/purple_500"
+                android:backgroundTint="@color/purple_700"
                 android:onClick="register"
                 android:text="Verify"
                 android:textSize="18sp"
