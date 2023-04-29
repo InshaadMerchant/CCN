@@ -36,7 +36,6 @@ public class Customized_feed extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_customized_feed);
 
-
         recyclerView = findViewById(R.id.recyclerview);
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
@@ -45,6 +44,9 @@ public class Customized_feed extends AppCompatActivity {
         adapter = new FeedAdapter(this, list);
 
         recyclerView.setAdapter(adapter);
+
+        Intent intent = new Intent(Customized_feed.this, Navigation_bar.class);
+        startActivity(intent);
 
         root.addValueEventListener(new ValueEventListener() {
             @Override
@@ -63,7 +65,7 @@ public class Customized_feed extends AppCompatActivity {
             }
         });
 
-        edit.setOnClickListener(new View.OnClickListener() {
+        /*edit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 //go to edit post
@@ -75,7 +77,7 @@ public class Customized_feed extends AppCompatActivity {
             public void onClick(View view) {
                 //go to delete post
             }
-        });
+        });*/
         postButton = (ImageButton) findViewById(R.id.post_button);
         /*postButton.setOnClickListener(new View.OnClickListener() {
             @Override

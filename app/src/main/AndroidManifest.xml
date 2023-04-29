@@ -12,7 +12,7 @@
         android:theme="@style/Theme.CCN"
         tools:targetApi="31">
         <activity
-            android:name=".Customized_Feed"
+            android:name=".Customized_feed"
             android:exported="false" />
         <activity
             android:name=".Navigation_bar"
