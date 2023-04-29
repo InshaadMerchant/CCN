@@ -6,7 +6,17 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".CreatingPost">
+    android:background="@color/UTA_BLUE"
+    tools:context="CreatingPost">
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="30dp"
+        android:background="@drawable/custom_edittext"
+        android:paddingTop="15dp"
+        app:cardCornerRadius="30dp"
+        app:cardElevation="20dp">
 
     <TextView
         android:layout_width="match_parent"
@@ -15,8 +25,7 @@
         android:textAllCaps="true"
         android:fontFamily="@font/bungee"
         android:textSize="45sp"
-        android:background="@color/UTA_BLUE"
-        android:textColor="@color/white"
+        android:textColor="@color/UTA_BLUE"
         android:padding="20dp">
 
     </TextView>
@@ -25,7 +34,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="@string/Title"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="170dp"
         style="@style/ThemeOverlay.Material3.AutoCompleteTextView.OutlinedBox">
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/title_box"
@@ -38,7 +47,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="@string/Content"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="250dp"
         style="@style/ThemeOverlay.Material3.AutoCompleteTextView.OutlinedBox">
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/content_box"
@@ -51,11 +60,12 @@
             android:scrollbarStyle="insideInset"
             android:scrollHorizontally="false"/>
     </com.google.android.material.textfield.TextInputLayout>
-
+    </androidx.cardview.widget.CardView>
     <Button
         android:id="@+id/location_button"
         android:layout_width="match_parent"
         android:layout_height="60dp"
+        android:layout_marginTop="20dp"
         android:text="@string/add_location"
         android:textStyle="bold" />
     <Button
