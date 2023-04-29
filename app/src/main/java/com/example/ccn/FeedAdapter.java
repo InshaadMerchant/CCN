@@ -4,6 +4,7 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -32,7 +33,7 @@ public class FeedAdapter extends RecyclerView.Adapter<FeedAdapter.MyViewHolder> 
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
         Model model = mlist.get(position);
         holder.title.setText(model.getTitle());
-        holder.subject.setText(model.getSubject());
+        holder.contents.setText(model.getContents());
     }
 
     @Override
@@ -43,13 +44,14 @@ public class FeedAdapter extends RecyclerView.Adapter<FeedAdapter.MyViewHolder> 
     public static class MyViewHolder extends RecyclerView.ViewHolder{
 
 
-        TextView title, subject;
+        TextView title;
+        Button contents;
 
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
 
             title = itemView.findViewById(R.id.title_text);
-            subject = itemView.findViewById(R.id.subject_text);
+            contents = itemView.findViewById(R.id.contents);
         }
     }
 }

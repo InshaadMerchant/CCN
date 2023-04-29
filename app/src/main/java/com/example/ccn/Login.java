@@ -98,7 +98,7 @@ public class Login extends AppCompatActivity {
                                                 }
                                                 else
                                                 {
-                                                    Intent intent = new Intent(Login.this, Registration_2.class);
+                                                    Intent intent = new Intent(Login.this, Customized_feed.class);
                                                     startActivity(intent);
                                                     finish();
                                                 }
@@ -118,7 +118,7 @@ public class Login extends AppCompatActivity {
                                         finish();
                                     }
                                 });
-
+//
             }
         });
         Registeration.setOnClickListener(new View.OnClickListener() {
