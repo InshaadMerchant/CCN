@@ -118,7 +118,7 @@ public class Login extends AppCompatActivity {
                                         finish();
                                     }
                                 });
-
+//
             }
         });
         Registeration.setOnClickListener(new View.OnClickListener() {

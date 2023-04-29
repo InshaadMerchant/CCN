@@ -9,6 +9,7 @@ import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.ImageButton;
 
@@ -45,8 +46,8 @@ public class Customized_feed extends AppCompatActivity {
 
         recyclerView.setAdapter(adapter);
 
-        //Intent intent = new Intent(Customized_feed.this, Navigation_bar.class);
-        //startActivity(intent);
+        Intent intent = new Intent(Customized_feed.this, Navigation_bar.class);
+        startActivity(intent);
 
         root.addValueEventListener(new ValueEventListener() {
             @Override

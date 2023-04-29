@@ -9,6 +9,7 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.view.WindowManager;
 import android.widget.Toast;
 
 import com.google.android.material.navigation.NavigationView;
@@ -32,10 +33,11 @@ public class Navigation_bar extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        drawerLayout = findViewById(R.id.drawer_layout);
         setContentView(R.layout.activity_customized_feed);
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
+        drawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
         navigationView = findViewById(R.id.nav_view);
-        drawerToggle = new ActionBarDrawerToggle(this,drawerLayout,R.string.open,R.string.close);
+        drawerToggle = new ActionBarDrawerToggle(Navigation_bar.this,drawerLayout,R.string.open,R.string.close);
         drawerLayout.addDrawerListener(drawerToggle);
         drawerToggle.syncState();
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
