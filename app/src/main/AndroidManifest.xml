@@ -29,6 +29,7 @@
             android:exported="false" />
         <activity
             android:name=".Navigation_bar"
+            android:parentActivityName=".Customized_feed"
             android:theme="@style/temp.CCN"
             android:exported="false" />
         <activity
