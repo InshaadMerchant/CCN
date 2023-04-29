@@ -120,15 +120,15 @@ public class Registration_1 extends AppCompatActivity {
                                             }
                                         }
                                         if (already_registered) {
-                                            Toast.makeText(Registration_1.this, "An account is already registered  under this id. Please sign in", Toast.LENGTH_SHORT).show();
-                                            Intent intent = new Intent(Registration_1.this, Registration_2.class);
+                                            Toast.makeText(Registration_1.this, "Your id is already registered with an account. Welcome back", Toast.LENGTH_SHORT).show();
+                                            Intent intent = new Intent(Registration_1.this, Customized_feed.class);
                                             startActivity(intent);
                                             finish();
                                         } else {
                                             root_ref.child("users").child(mAuth.getCurrentUser().getUid()).setValue(new_user);
                                             user_idref.child(mAuth.getCurrentUser().getUid()).setValue(mAuth.getCurrentUser().getUid().toString());
                                             Toast.makeText(Registration_1.this, "USER REGISTERED SUCCESSFULLY", Toast.LENGTH_SHORT).show();
-                                            Intent intent = new Intent(Registration_1.this, Registration_2.class);
+                                            Intent intent = new Intent(Registration_1.this,Customized_feed.class );
                                             startActivity(intent);
                                             finish();
                                         }
@@ -147,7 +147,7 @@ public class Registration_1 extends AppCompatActivity {
                                 new OnFailureListener() {
                                     @Override
                                     public void onFailure(@NonNull Exception e) {
-                                        Toast.makeText(Registration_1.this, "Verification Email has been sent.",
+                                        Toast.makeText(Registration_1.this, "Verify using your student id",
                                                 Toast.LENGTH_SHORT).show();
                                         return;
                                     }

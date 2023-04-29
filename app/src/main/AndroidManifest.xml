@@ -24,6 +24,12 @@
             android:name=".Login"
             android:exported="false" />
         <activity
+            android:name=".Customized_feed"
+            android:exported="false" />
+        <activity
+            android:name=".Navigation_bar"
+            android:exported="false" />
+        <activity
             android:name=".MainActivity"
             android:exported="true">
             <intent-filter>

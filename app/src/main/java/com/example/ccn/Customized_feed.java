@@ -45,8 +45,8 @@ public class Customized_feed extends AppCompatActivity {
 
         recyclerView.setAdapter(adapter);
 
-        Intent intent = new Intent(Customized_feed.this, Navigation_bar.class);
-        startActivity(intent);
+        //Intent intent = new Intent(Customized_feed.this, Navigation_bar.class);
+        //startActivity(intent);
 
         root.addValueEventListener(new ValueEventListener() {
             @Override
