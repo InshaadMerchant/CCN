@@ -11,14 +11,20 @@ import android.widget.ImageView;
 
 public class MainActivity extends AppCompatActivity  {
 
-    Handler handler;
+    /*Handler handler;
     Runnable runnable;
     ImageView img;
 
     @SuppressLint({"Range", "SuspiciousIndentation"})
-    @Override
+    @Override*/
     protected void onCreate(Bundle savedInstanceState) {
-        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
+
+        super.onCreate(savedInstanceState);
+        Intent intent = new Intent(MainActivity.this, CreatingPost.class);
+        startActivity(intent);
+        finish();
+
+        /*getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         img= findViewById(R.id.homescreen);
@@ -31,7 +37,7 @@ public class MainActivity extends AppCompatActivity  {
                 startActivity(dsp);
                 finish();
             }
-        },3000);
+        },3000); */
 
 
     }
