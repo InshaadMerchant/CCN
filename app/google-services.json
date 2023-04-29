@@ -1,6 +1,7 @@
 {
   "project_info": {
     "project_number": "148186572397",
+    "firebase_url": "https://cse3310-team8-default-rtdb.firebaseio.com",
     "project_id": "cse3310-team8",
     "storage_bucket": "cse3310-team8.appspot.com"
   },
@@ -13,6 +14,14 @@
         }
       },
       "oauth_client": [
+        {
+          "client_id": "148186572397-atosjbd3kfkrj11el6ddllvbao58pafe.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.ccn",
+            "certificate_hash": "eab1b4f6ed08f181e9649dd3049d6dcdfca4446b"
+          }
+        },
         {
           "client_id": "148186572397-t4n3pv55bf52p98ed0tnlvqq3qfd0rq5.apps.googleusercontent.com",
           "client_type": 3
