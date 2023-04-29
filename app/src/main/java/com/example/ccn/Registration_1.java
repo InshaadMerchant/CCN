@@ -27,7 +27,7 @@ import com.google.firebase.database.ValueEventListener;
 
 public class Registration_1 extends AppCompatActivity {
     TextInputEditText regName, regUsername, regEmail, regDescription, security_answer, regReenterPassword;
-    Button regVerify, regtoLoginButton;
+    Button regVerify;
     //    Required database references and variables
     FirebaseAuth mAuth;
     OAuthProvider.Builder provider = OAuthProvider.newBuilder("microsoft.com");
@@ -45,6 +45,16 @@ public class Registration_1 extends AppCompatActivity {
             return false;
         } else {
             regName.setError(null);
+            return true;
+        }
+    }
+    private Boolean validateDescription() {
+        String val = regDescription.getText().toString();
+        if (val.isEmpty()) {
+            regDescription.setError("This Field is Mandatory");
+            return false;
+        } else {
+            regDescription.setError(null);
             return true;
         }
     }
@@ -79,18 +89,10 @@ public class Registration_1 extends AppCompatActivity {
         regName = findViewById(R.id.reg_name);
         regUsername = findViewById(R.id.reg_username);
         regDescription = findViewById(R.id.description);
-        regtoLoginButton = findViewById(R.id.existing_user);
         regVerify = findViewById(R.id.Verification_button);
 
 
-        regtoLoginButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(Registration_1.this, Login.class);
-                startActivity(intent);
-                finish();
-            }
-        });
+
 
         regVerify.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -101,8 +103,8 @@ public class Registration_1 extends AppCompatActivity {
                 String name = regName.getText().toString();
                 String username = regUsername.getText().toString();
                 String description = regDescription.getText().toString();
-                if (name == null || username == null || description == null) {
-
+                if (!validateDescription() | !validateName() | !validateUsername()) {
+                    return;
                 }
                 RegistrationHelperClass new_user = new RegistrationHelperClass(name, username, description);
                 mAuth.startActivityForSignInWithProvider(Registration_1.this, provider.build()).addOnSuccessListener( new OnSuccessListener<AuthResult>() {

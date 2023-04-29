@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/UTA_BLUE"
+    android:background="@color/Azureish_White"
     android:gravity="top"
     android:onClick="register"
     android:orientation="vertical"
@@ -18,11 +18,11 @@
         android:background="@drawable/custom_edittext"
         android:paddingTop="15dp"
         app:cardCornerRadius="30dp"
-        app:cardElevation="20dp">
+        app:cardElevation="40dp">
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="606dp"
+            android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:orientation="vertical"
             android:padding="24dp">
@@ -33,7 +33,7 @@
                 android:layout_height="wrap_content"
                 android:text="Sign up"
                 android:textAlignment="center"
-                android:textColor="@color/UTA_BLUE"
+                android:textColor="@color/purple_500"
                 android:textSize="36sp"
                 android:textStyle="bold" />
 
@@ -67,10 +67,10 @@
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/description"
                 android:layout_width="match_parent"
-                android:layout_height="145dp"
+                android:layout_height="80dp"
                 android:layout_marginTop="10dp"
                 android:background="@drawable/custom_edittext"
-                android:drawableLeft="@drawable/baseline_person_24"
+                android:drawableLeft="@drawable/baseline_message_24"
                 android:drawablePadding="8dp"
                 android:hint="Add a desciption."
                 android:padding="8dp"
@@ -82,7 +82,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="60dp"
                 android:layout_marginTop="30dp"
-                android:backgroundTint="@color/UTA_BLUE"
+                android:backgroundTint="@color/purple_500"
                 android:onClick="register"
                 android:text="Verify"
                 android:textSize="18sp"
@@ -90,17 +90,12 @@
         </LinearLayout>
     </androidx.cardview.widget.CardView>
 
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        card_view:srcCompat="@drawable/college_networking" />
 
-    <Button
-        android:id="@+id/existing_user"
-        android:layout_width="400dp"
-        android:layout_height="40dp"
-        android:layout_gravity="center"
-        android:background="#00000000"
-        android:elevation="0dp"
-        android:paddingTop="0dp"
-        android:text="Already Have an account? Sign in"
-        android:textColor="#fff" />
 </LinearLayout>
 
 
