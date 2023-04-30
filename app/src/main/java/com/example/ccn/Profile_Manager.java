@@ -11,7 +11,7 @@ import com.google.android.material.textfield.TextInputLayout;
 
 public class Profile_Manager extends AppCompatActivity {
     TextView profilenameLabel,profileusernameLabel;
-    TextInputEditText profilename,profileusername,profiledescription;
+    TextInputLayout profilename,profileusername,profiledescription;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -25,19 +25,15 @@ public class Profile_Manager extends AppCompatActivity {
     }
     private void showAllUserData(){
         Intent intent  = getIntent();
-        String nameLabel = intent.getStringExtra("name");
-        String usernameLable = intent.getStringExtra("username");
         String uid = intent.getStringExtra("uid");
         String name = intent.getStringExtra("name");
         String username = intent.getStringExtra("username");
         String description = intent.getStringExtra("description");
 
-        profilename.setText(name);
-        profileusername.setText(username);
-        profilenameLabel.setText(nameLabel);
-        profileusernameLabel.setText(usernameLable);
-        profiledescription.setText(description);
-
-
+        profilename.getEditText().setText(name);
+        profileusername.getEditText().setText(username);
+        profilenameLabel.setText(name);
+        profileusernameLabel.setText(username);
+        profiledescription.getEditText().setText(description);
     }
 }

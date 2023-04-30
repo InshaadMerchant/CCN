@@ -145,11 +145,11 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Full Name"
+            android:id="@+id/user_entered_name"
             android:layout_marginBottom="10dp">
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/user_entered_name"
                 android:text="Athrva Arora"
                 android:drawableLeft="@drawable/baseline_person_24"
                 android:drawablePadding="10dp"
@@ -160,11 +160,11 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Username"
+            android:id="@+id/user_entered_username"
             android:layout_marginBottom="10dp">
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/user_entered_username"
                 android:text="axa5988"
                 android:drawableLeft="@drawable/baseline_person_24"
                 android:drawablePadding="10dp"
@@ -175,11 +175,11 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Description"
+            android:id="@+id/user_entered_Description"
             android:layout_marginBottom="10dp">
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/user_entered_Description"
                 android:text="Another Tired CSE Student"
                 android:drawableLeft="@drawable/baseline_message_24"
                 android:drawablePadding="10dp"/>
