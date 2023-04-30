@@ -76,4 +76,7 @@
     <string name="Publish" />
     <string name="add_a_location">Add a location</string>
     <string name="publish">Publish</string>
+    <string name="post">Create a Post</string>
+    <string name="title">Title</string>
+    <string name="content">Content</string>
 </resources>
