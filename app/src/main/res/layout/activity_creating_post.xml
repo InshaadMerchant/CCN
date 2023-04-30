@@ -21,7 +21,7 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="150dp"
-        android:text="@string/create_a_post"
+        android:text="@string/Post"
         android:textAllCaps="true"
         android:fontFamily="@font/bungee"
         android:textSize="45sp"
@@ -61,18 +61,19 @@
             android:scrollHorizontally="false"/>
     </com.google.android.material.textfield.TextInputLayout>
     </androidx.cardview.widget.CardView>
+
     <Button
         android:id="@+id/location_button"
         android:layout_width="match_parent"
         android:layout_height="60dp"
         android:layout_marginTop="20dp"
-        android:text="@string/add_location"
+        android:text="@string/add_a_location"
         android:textStyle="bold" />
     <Button
         android:id="@+id/publish_button"
         android:layout_width="match_parent"
         android:layout_height="60dp"
         android:layout_marginTop="20dp"
-        android:text="@string/Publish"
+        android:text="@string/publish"
         android:textStyle="bold" />
 </LinearLayout>
