@@ -18,62 +18,62 @@
         app:cardCornerRadius="30dp"
         app:cardElevation="20dp">
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="150dp"
-        android:text="@string/Post"
-        android:textAllCaps="true"
-        android:fontFamily="@font/bungee"
-        android:textSize="45sp"
-        android:textColor="@color/UTA_BLUE"
-        android:padding="20dp">
-
-    </TextView>
-
-    <com.google.android.material.textfield.TextInputLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="@string/Title"
-        android:layout_marginTop="170dp"
-        style="@style/ThemeOverlay.Material3.AutoCompleteTextView.OutlinedBox">
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/title_box"
+        <TextView
             android:layout_width="match_parent"
-            android:layout_height="100dp"
-            android:inputType="textMultiLine"/>
-    </com.google.android.material.textfield.TextInputLayout>
+            android:layout_height="150dp"
+            android:text="@string/post"
+            android:textAllCaps="true"
+            android:fontFamily="@font/bungee"
+            android:textSize="40sp"
+            android:textColor="@color/UTA_BLUE"
+            android:padding="20dp">
 
-    <com.google.android.material.textfield.TextInputLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="@string/Content"
-        android:layout_marginTop="250dp"
-        style="@style/ThemeOverlay.Material3.AutoCompleteTextView.OutlinedBox">
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/content_box"
+        </TextView>
+
+        <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
-            android:layout_height="350dp"
-            android:inputType="textMultiLine"
-            android:gravity="top"
-            android:overScrollMode="always"
-            android:scrollbars="vertical"
-            android:scrollbarStyle="insideInset"
-            android:scrollHorizontally="false"/>
-    </com.google.android.material.textfield.TextInputLayout>
+            android:layout_height="wrap_content"
+            android:hint="@string/title"
+            android:layout_marginTop="170dp"
+            style="@style/ThemeOverlay.Material3.AutoCompleteTextView.OutlinedBox">
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/title_box"
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:inputType="textMultiLine"/>
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/content"
+            android:layout_marginTop="270dp"
+            style="@style/ThemeOverlay.Material3.AutoCompleteTextView.OutlinedBox">
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/content_box"
+                android:layout_width="match_parent"
+                android:layout_height="350dp"
+                android:inputType="textMultiLine"
+                android:gravity="top"
+                android:overScrollMode="always"
+                android:scrollbars="vertical"
+                android:scrollbarStyle="insideInset"
+                android:scrollHorizontally="false"/>
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <Button
+            android:id="@+id/location_button"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_marginTop="500dp"
+            android:text="@string/add_a_location"
+            android:textStyle="bold" />
+        <Button
+            android:id="@+id/publish_button"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_marginTop="570dp"
+            android:text="@string/publish"
+            android:textStyle="bold" />
     </androidx.cardview.widget.CardView>
-
-    <Button
-        android:id="@+id/location_button"
-        android:layout_width="match_parent"
-        android:layout_height="60dp"
-        android:layout_marginTop="20dp"
-        android:text="@string/add_a_location"
-        android:textStyle="bold" />
-    <Button
-        android:id="@+id/publish_button"
-        android:layout_width="match_parent"
-        android:layout_height="60dp"
-        android:layout_marginTop="20dp"
-        android:text="@string/publish"
-        android:textStyle="bold" />
 </LinearLayout>

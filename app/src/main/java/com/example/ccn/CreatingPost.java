@@ -28,8 +28,8 @@ public class CreatingPost extends AppCompatActivity {
         setContentView(R.layout.activity_creating_post);
         title = findViewById(R.id.title_box);
         content = findViewById(R.id.content_box);
-        String title_text = String.valueOf(title.getText());
-        String content_text = String.valueOf(content.getText());
+        String title_text = title.getText().toString();
+        String content_text = content.getText().toString();
         Button publish_button = findViewById(R.id.publish_button);
         Button location_button = findViewById(R.id.location_button);
         Model post= new Model(title_text,content_text);

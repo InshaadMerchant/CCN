@@ -21,6 +21,10 @@
             android:exported="false"
             android:parentActivityName=".Login" />
         <activity
+            android:name=".CreatingPost"
+            android:exported="false"
+            android:parentActivityName=".Customized_feed" />
+        <activity
             android:name=".Login"
             android:exported="false" />
         <activity

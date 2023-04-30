@@ -65,18 +65,6 @@ public class Customized_feed extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_customized_feed);
-        Model firspost = new Model("This is a title", "Dorime, Interimo adapare dorime ameno ameno ");
-        Model secondpost = new Model("Thvsdvs", "Dopare dorime ameno ameno ");
-        Model Thirdpost = new Model("This isstle", "Dorime, Interimo ");
-        Model fourthpost = new Model("This svd", "vsd'vslfv's;apare dorime ameno ameno ");
-        Model fifthpost = new Model("This sfe", "Dorime,  ");
-        Model post = new Model("This sfe", "Dorime,  ");
-        root.push().setValue(firspost);
-        root.push().setValue(secondpost);
-        root.push().setValue(Thirdpost);
-        root.push().setValue(fourthpost);
-        root.push().setValue(fifthpost);
-        root.push().setValue(post);
         recyclerView = findViewById(R.id.recyclerview);
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
@@ -163,12 +151,12 @@ public class Customized_feed extends AppCompatActivity {
             }
         });*/
         postButton = (ImageButton) findViewById(R.id.post_button);
-        /*postButton.setOnClickListener(new View.OnClickListener() {
+        postButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(Customized_feed.this, CreatingPost.class);
                 startActivity(intent);
             }
-        });*/
+        });
     }
 }
