@@ -7,7 +7,6 @@
     <string name="reg_password">Password</string>
     <string name="confirm_password">Confirm Password</string>
     <string name="security_question">Security Question</string>
-    <string name="security_question_answer">Answer</string>
     <string name="select_item">Select_item</string>
     <string name="login_email">Email</string>
     <string name="login_password">Password</string>
@@ -17,6 +16,19 @@
     <string name="second_fragment_label">Second Fragment</string>
     <string name="next">Next</string>
     <string name="previous">Previous</string>
+
+        <string name="open">Open Navigation Drawer</string>
+        <string name="close">Close Navigation Drawer</string>
+        <string name="profile">Profile</string>
+        <string name="home">Home</string>
+        <string name="about">About</string>
+        <string name="logout">Logout</string>
+        <string name="communication">Communication</string>
+        <string name="share">Share</string>
+        <string name="add_new_post">Add New Post</string>
+        <string name="add_post">Add New Post</string>
+        <string name="edit">edit</string>
+        <string name="delete">delete</string>
 
     <string name="lorem_ipsum">
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam in scelerisque sem. Mauris
@@ -54,12 +66,6 @@
         libero vel nunc consequat, quis tincidunt nisl eleifend. Cras bibendum enim a justo luctus
         vestibulum. Fusce dictum libero quis erat maximus, vitae volutpat diam dignissim.
     </string>
-    <string name="title">Title</string>
-    <string name="content">Content</string>
-    <string name="publish">PUBLISH</string>
-    <string name="Title">Title</string>
-    <string name="Content">Content</string>
-    <string name="Publish">PUBLISH</string>
-    <string name="add_location">ADD LOCATION</string>
-    <string name="create_a_post">Create A Post</string>
+    <string name="guest_usrbtn">Continue as Guest</string>
+    <string name="tagline">College Networking starts here</string>
 </resources>

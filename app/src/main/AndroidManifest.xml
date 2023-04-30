@@ -14,14 +14,6 @@
         android:theme="@style/Theme.CCN"
         tools:targetApi="31">
         <activity
-            android:name=".CreatingPost"
-            android:exported="false" />
-        <activity
-            android:name=".postregactivity"
-            android:exported="false"
-            android:label="@string/title_activity_postregactivity"
-            android:theme="@style/Theme.CCN" />
-        <activity
             android:name=".Registration_2"
             android:exported="false" />
         <activity
@@ -32,6 +24,15 @@
             android:name=".Login"
             android:exported="false" />
         <activity
+            android:name=".Customized_feed"
+            android:theme="@style/temp.CCN"
+            android:exported="false" />
+        <activity
+            android:name=".Navigation_bar"
+            android:parentActivityName=".Customized_feed"
+            android:theme="@style/temp.CCN"
+            android:exported="false" />
+        <activity
             android:name=".MainActivity"
             android:exported="true">
             <intent-filter>
@@ -40,10 +41,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
-        <meta-data
-            android:name="preloaded_fonts"
-            android:resource="@array/preloaded_fonts" />
     </application>
 
 </manifest>

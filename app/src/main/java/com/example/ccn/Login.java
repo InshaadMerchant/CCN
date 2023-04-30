@@ -32,9 +32,6 @@ public class Login extends AppCompatActivity {
     private Boolean validatePassword() {
         String val1 = LoginPassword.getText().toString();
         String passwordVal = "^" +
-                //"(?=.*[0-9])" +         //at least 1 digit
-                //"(?=.*[a-z])" +         //at least 1 lower case letter
-                //"(?=.*[A-Z])" +         //at least 1 upper case letter
                 "(?=.*[a-zA-Z])" +      //any letter
                 "(?=.*[@#$%^&+=])" +    //at least 1 special character
                 "(?=\\S+$)" +           //no white spaces
@@ -66,16 +63,8 @@ public class Login extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_login);
-        CallSignUp = findViewById(R.id.signup_button);
         LoginButton = findViewById(R.id.loginButton);
-        Registeration= findViewById(R.id.register);
-        CallSignUp.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(Login.this, Registration_1.class);
-                startActivity(intent);
-            }
-        });
+        Registeration= findViewById(R.id.registerbutton);
         LoginButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -109,7 +98,7 @@ public class Login extends AppCompatActivity {
                                                 }
                                                 else
                                                 {
-                                                    Intent intent = new Intent(Login.this, Registration_2.class);
+                                                    Intent intent = new Intent(Login.this, Customized_feed.class);
                                                     startActivity(intent);
                                                     finish();
                                                 }
@@ -129,7 +118,7 @@ public class Login extends AppCompatActivity {
                                         finish();
                                     }
                                 });
-
+//
             }
         });
         Registeration.setOnClickListener(new View.OnClickListener() {
