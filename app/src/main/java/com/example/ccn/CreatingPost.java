@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
 
 import com.google.android.material.textfield.TextInputEditText;
 
@@ -25,12 +26,13 @@ public class CreatingPost extends AppCompatActivity {
         Button publish_button = findViewById(R.id.publish_button);
         Button location_button = findViewById(R.id.location_button);
         publish_button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent (CreatingPost.this, Registration_2.class);
-                startActivity(intent);
-                finish();
-            }
+                @Override
+                public void onClick (View v)
+                {
+                    Intent intent = new Intent(CreatingPost.this, Registration_2.class);
+                    startActivity(intent);
+                    finish();
+                }
         });
     }
 
