@@ -37,7 +37,7 @@ public class CreatingPost extends AppCompatActivity {
                 @Override
                 public void onClick (View v)
                 {
-//                    ToDo: Verify that user have some content and title which is not null
+                    //ToDo: Verify that user have some content and title which is not null
                     root.child("Posts").push().setValue(post);
                     root.child("user_post").child(mAuth.getCurrentUser().getUid()).setValue(post);
                     Intent intent = new Intent(CreatingPost.this, Customized_feed.class);
