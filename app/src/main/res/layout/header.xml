@@ -10,17 +10,11 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Team 8"
+        android:text="CCN"
         android:textStyle="bold"
-        android:textSize="20dp"
+        android:textSize="35dp"
 
         android:textColor="@color/white"/>
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="team8.cse3310@gmail.com"
-        android:textSize="20dp"
-        android:textColor="#fff"/>
 
 </LinearLayout>
