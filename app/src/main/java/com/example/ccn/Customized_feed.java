@@ -154,13 +154,13 @@ public class Customized_feed extends AppCompatActivity implements PostInterface{
         });
 
         postButton = (ImageButton) findViewById(R.id.post_button);
-        /*postButton.setOnClickListener(new View.OnClickListener() {
+        postButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(Customized_feed.this, CreatingPost.class);
+                Intent intent = new Intent(Customized_feed.this, CreatePost.class);
                 startActivity(intent);
             }
-        });*/
+        });
     }
 
     private void filterList(String text) {

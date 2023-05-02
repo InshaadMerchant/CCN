@@ -57,7 +57,7 @@ public class CreatePost extends AppCompatActivity {
         String title = Title.getText().toString();
         String description = Description.getText().toString();
         Model helperclass = new Model(title,description);
-        reference.child("Posts").child(mauth.getCurrentUser().getUid().toString()).setValue(helperclass);
+        reference.child("Posts").push().setValue(helperclass);
                 reference.child("user_post").child(mauth.getCurrentUser().getUid().toString()).push().setValue(helperclass);
                 //.addOnCompleteListener(new OnCompleteListener<Void>() {
                   //  @Override
