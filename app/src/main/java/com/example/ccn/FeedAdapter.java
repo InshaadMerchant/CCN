@@ -14,20 +14,21 @@ import androidx.recyclerview.widget.RecyclerView;
 import java.util.ArrayList;
 
 public class FeedAdapter extends RecyclerView.Adapter<FeedAdapter.MyViewHolder> {
-
+    private final PostInterface postInterface;
     ArrayList<Model> mlist;
     Context context;
 
-    public FeedAdapter(Context context, ArrayList<Model> mlist) {
+    public FeedAdapter(Context context, ArrayList<Model> mlist, PostInterface postInterface) {
         this.mlist = mlist;
         this.context = context;
+        this.postInterface = postInterface;
     }
 
     @NonNull
     @Override
     public MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View v = LayoutInflater.from(context).inflate(R.layout.post, parent, false);
-        return new MyViewHolder(v);
+        return new MyViewHolder(v, postInterface);
     }
 
     @Override
@@ -49,7 +50,7 @@ public class FeedAdapter extends RecyclerView.Adapter<FeedAdapter.MyViewHolder> 
         Button contents;
 
 
-        public MyViewHolder(@NonNull View itemView) {
+        public MyViewHolder(@NonNull View itemView, PostInterface postInterface) {
             super(itemView);
 
             title = itemView.findViewById(R.id.title_text);
@@ -58,8 +59,13 @@ public class FeedAdapter extends RecyclerView.Adapter<FeedAdapter.MyViewHolder> 
             contents.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Intent intent = new Intent(v.getContext(), DisplayPost.class);
-                    v.getContext().startActivity(intent);
+                    if(postInterface != null) {
+                        int position = getAdapterPosition();
+
+                        if (position != RecyclerView.NO_POSITION){
+                            postInterface.onButtonClick(position);
+                        }
+                    }
                 }
             });
         }

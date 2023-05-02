@@ -13,6 +13,7 @@ import android.view.MenuItem;
 import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.material.navigation.NavigationView;
@@ -38,21 +39,14 @@ public class DisplayPost extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_display_post);
-        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
-        root.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
+        String title = getIntent().getStringExtra("TITLE");
+        String contents = getIntent().getStringExtra("CONTENTS");
 
-                for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
-                    Model model = dataSnapshot.getValue(Model.class);
-                }
-            }
+        TextView title_name = findViewById(R.id.title_text);
+        TextView total_contents = findViewById(R.id.contents);
 
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-
-            }
-        });
+        title_name.setText(title);
+        total_contents.setText(contents);
     }
 }
