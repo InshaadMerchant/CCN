@@ -14,6 +14,9 @@
         android:theme="@style/Theme.CCN"
         tools:targetApi="31">
         <activity
+            android:name=".CreatePost"
+            android:exported="false" />
+        <activity
             android:name=".Registration_2"
             android:exported="false" />
         <activity
@@ -25,13 +28,12 @@
             android:exported="false" />
         <activity
             android:name=".Customized_feed"
-            android:theme="@style/temp.CCN"
-            android:exported="false" />
+            android:exported="false"
+            android:theme="@style/temp.CCN" />
         <activity
             android:name=".Navigation_bar"
-            android:parentActivityName=".Customized_feed"
-            android:theme="@style/temp.CCN"
-            android:exported="false" />
+            android:exported="false"
+            android:theme="@style/temp.CCN" />
         <activity
             android:name=".MainActivity"
             android:exported="true">

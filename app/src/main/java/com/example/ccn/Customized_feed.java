@@ -111,8 +111,8 @@ public class Customized_feed extends AppCompatActivity {
                     }
                     case R.id.about: {
                         Toast.makeText(Customized_feed.this, "about selected", Toast.LENGTH_SHORT).show();
-                        //Intent intent = new Intent(MainActivity.this, profile.class);
-                        //startActivity(intent);
+                        Intent intent = new Intent(Customized_feed.this, Login.class);
+                        startActivity(intent);
                         break;
                     }
                     case R.id.logout: {
@@ -163,12 +163,12 @@ public class Customized_feed extends AppCompatActivity {
             }
         });*/
         postButton = (ImageButton) findViewById(R.id.post_button);
-        /*postButton.setOnClickListener(new View.OnClickListener() {
+        postButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(Customized_feed.this, CreatingPost.class);
                 startActivity(intent);
             }
-        });*/
+        });
     }
 }
