@@ -28,7 +28,7 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 
-public class Customized_feed extends AppCompatActivity {
+public class Customized_feed extends AppCompatActivity implements PostInterface{
 
     DrawerLayout drawerLayout;
     NavigationView navigationView;
@@ -82,7 +82,7 @@ public class Customized_feed extends AppCompatActivity {
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
         list = new ArrayList<>();
-        adapter = new FeedAdapter(this, list);
+        adapter = new FeedAdapter(this, list, this);
 
         recyclerView.setAdapter(adapter);
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
@@ -101,13 +101,11 @@ public class Customized_feed extends AppCompatActivity {
                 switch (item.getItemId()) {
                     case R.id.home: {
                         Toast.makeText(Customized_feed.this, "home selected", Toast.LENGTH_SHORT).show();
-                        Intent intent = new Intent(Customized_feed.this, Customized_feed.class);
-                        startActivity(intent);
                         break;
                     }
                     case R.id.add_post: {
                         Toast.makeText(Customized_feed.this, "Add Post Selected", Toast.LENGTH_SHORT).show();
-                        Intent intent = new Intent(Customized_feed.this, CreatingPost.class);
+                        Intent intent = new Intent(Customized_feed.this,Registration_1.class);
                         startActivity(intent);
                         break;
                     }
@@ -119,8 +117,8 @@ public class Customized_feed extends AppCompatActivity {
                     }
                     case R.id.logout: {
                         Toast.makeText(Customized_feed.this, "logout selected", Toast.LENGTH_SHORT).show();
-                        Intent intent = new Intent(Customized_feed.this, Login.class);
-                        startActivity(intent);
+                        //Intent intent = new Intent(MainActivity.this, login.class);
+                        //startActivity(intent);
                         break;
                     }
                     case R.id.share: {
@@ -172,5 +170,16 @@ public class Customized_feed extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+    }
+
+    @Override
+    public void onButtonClick(int position) {
+        Intent intent = new Intent(Customized_feed.this, DisplayPost.class);
+        Model model = list.get(position);
+
+        intent.putExtra("TITLE", model.getTitle());
+        intent.putExtra("CONTENTS", model.getContents());
+
+        startActivity(intent);
     }
 }
