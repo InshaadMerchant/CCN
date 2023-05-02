@@ -3,6 +3,7 @@ package com.example.ccn;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.SearchView;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -28,7 +29,7 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 
-public class Customized_feed extends AppCompatActivity {
+public class Customized_feed extends AppCompatActivity implements PostInterface{
 
     DrawerLayout drawerLayout;
     NavigationView navigationView;
@@ -43,6 +44,7 @@ public class Customized_feed extends AppCompatActivity {
     private FeedAdapter adapter;
     private ArrayList<Model> list;
     public ImageButton postButton;
+    private SearchView searchView;
 
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
@@ -65,24 +67,27 @@ public class Customized_feed extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_customized_feed);
-        Model firspost = new Model("This is a title", "Dorime, Interimo adapare dorime ameno ameno ");
-        Model secondpost = new Model("Thvsdvs", "Dopare dorime ameno ameno ");
-        Model Thirdpost = new Model("This isstle", "Dorime, Interimo ");
-        Model fourthpost = new Model("This svd", "vsd'vslfv's;apare dorime ameno ameno ");
-        Model fifthpost = new Model("This sfe", "Dorime,  ");
-        Model post = new Model("This sfe", "Dorime,  ");
-        root.push().setValue(firspost);
-        root.push().setValue(secondpost);
-        root.push().setValue(Thirdpost);
-        root.push().setValue(fourthpost);
-        root.push().setValue(fifthpost);
-        root.push().setValue(post);
+        searchView = findViewById(R.id.search);
+        searchView.clearFocus();
+        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+                return false;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String newText) {
+                filterList(newText);
+                return true;
+            }
+        });
+
         recyclerView = findViewById(R.id.recyclerview);
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
         list = new ArrayList<>();
-        adapter = new FeedAdapter(this, list);
+        adapter = new FeedAdapter(this, list, this);
 
         recyclerView.setAdapter(adapter);
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
@@ -105,8 +110,8 @@ public class Customized_feed extends AppCompatActivity {
                     }
                     case R.id.add_post: {
                         Toast.makeText(Customized_feed.this, "Add Post Selected", Toast.LENGTH_SHORT).show();
-                        //Intent intent = new Intent(MainActivity.this, creating_post.class);
-                        //startActivity(intent);
+                        Intent intent = new Intent(Customized_feed.this,Registration_1.class);
+                        startActivity(intent);
                         break;
                     }
                     case R.id.about: {
@@ -148,27 +153,39 @@ public class Customized_feed extends AppCompatActivity {
             }
         });
 
-
-        /*edit.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                //go to edit post
-            }
-        });
-
-        delete.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                //go to delete post
-            }
-        });*/
         postButton = (ImageButton) findViewById(R.id.post_button);
-        /*postButton.setOnClickListener(new View.OnClickListener() {
+        postButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(Customized_feed.this, CreatingPost.class);
+                Intent intent = new Intent(Customized_feed.this, CreatePost.class);
                 startActivity(intent);
             }
-        });*/
+        });
+    }
+
+    private void filterList(String text) {
+        ArrayList<Model> filteredList = new ArrayList<>();
+        for(Model model:list ) {
+            if(model.getTitle().toLowerCase().contains(text.toLowerCase())) {
+                filteredList.add(model);
+            }
+        }
+
+        if(filteredList.isEmpty()) {
+            Toast.makeText(this, "No matches found", Toast.LENGTH_SHORT).show();
+        } else{
+            adapter.setFilteredList(filteredList);
+        }
+    }
+
+    @Override
+    public void onButtonClick(int position) {
+        Intent intent = new Intent(Customized_feed.this, DisplayPost.class);
+        Model model = list.get(position);
+
+        intent.putExtra("TITLE", model.getTitle());
+        intent.putExtra("CONTENTS", model.getContents());
+
+        startActivity(intent);
     }
 }

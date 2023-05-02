@@ -14,7 +14,10 @@
         android:theme="@style/Theme.CCN"
         tools:targetApi="31">
         <activity
-            android:name=".Profile_Manager"
+            android:name=".CreatePost"
+            android:exported="false" />
+        <activity
+            android:name=".Registration_2"
             android:exported="false" />
         <activity
             android:name=".Registration_1"
@@ -25,13 +28,16 @@
             android:exported="false" />
         <activity
             android:name=".Customized_feed"
-            android:theme="@style/temp.CCN"
-            android:exported="false" />
+            android:exported="false"
+            android:theme="@style/temp.CCN" />
+        <activity
+            android:name=".DisplayPost"
+            android:exported="false"
+            android:parentActivityName=".Customized_feed" />
         <activity
             android:name=".Navigation_bar"
-            android:parentActivityName=".Customized_feed"
-            android:theme="@style/temp.CCN"
-            android:exported="false" />
+            android:exported="false"
+            android:theme="@style/temp.CCN" />
         <activity
             android:name=".MainActivity"
             android:exported="true">
@@ -41,6 +47,10 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <meta-data
+            android:name="preloaded_fonts"
+            android:resource="@array/preloaded_fonts" />
     </application>
 
 </manifest>
