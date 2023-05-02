@@ -3,7 +3,7 @@ package com.example.ccn;
 import com.google.firebase.database.IgnoreExtraProperties;
 
 @IgnoreExtraProperties
-public class CreatePostHelper extends CreatePost{
+public class CreatePostHelper  CreatePost{
     public String title;
     public String description;
 

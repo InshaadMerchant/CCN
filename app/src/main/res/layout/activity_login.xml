@@ -19,15 +19,15 @@
             android:transitionName="college_networking"/>
 
         <TextView
+            android:id="@+id/loginTagline"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:fontFamily="@font/bungee"
+            android:fontFamily="@font/bungee_inline"
             android:paddingTop="70dp"
             android:text="@string/tagline"
             android:textAllCaps="true"
             android:textColor="@color/UTA_BLUE"
-            android:textSize="28sp"
-            android:id="@+id/loginTagline"/>
+            android:textSize="28sp" />
 
         <LinearLayout
             android:layout_width="match_parent"
