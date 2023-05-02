@@ -71,7 +71,7 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
         LatLng destination = new LatLng(latitude, longitude);
         mMap.addMarker(new MarkerOptions()
                 .position(destination)
-                .title("Destination"));
+                .title("" + location));
         mMap.moveCamera(CameraUpdateFactory.newLatLng(destination));
     }
 }
