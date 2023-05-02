@@ -76,9 +76,6 @@ public class Customized_feed extends AppCompatActivity implements PostInterface,
             }
         });
 
-        Intent intent = new Intent(Customized_feed.this, MapsActivity.class);
-        startActivity(intent);
-
         recyclerView = findViewById(R.id.recyclerview);
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
@@ -149,6 +146,7 @@ public class Customized_feed extends AppCompatActivity implements PostInterface,
 
         intent.putExtra("TITLE", model.getTitle());
         intent.putExtra("CONTENTS", model.getContents());
+        intent.putExtra("LOCATION", model.getLocation());
 
         startActivity(intent);
     }

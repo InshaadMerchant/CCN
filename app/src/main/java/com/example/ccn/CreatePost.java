@@ -20,7 +20,7 @@ import com.google.firebase.database.FirebaseDatabase;
 
 public class CreatePost extends AppCompatActivity {
     Button btnpublish, btncancel;
-    TextInputEditText Title, Description;
+    TextInputEditText Title, Description, Location;
     DatabaseReference reference;
     FirebaseAuth mauth= FirebaseAuth.getInstance();
     @Override
@@ -31,6 +31,7 @@ public class CreatePost extends AppCompatActivity {
         btnpublish = findViewById(R.id.publishButton);
         Title = findViewById(R.id.title_post);
         Description = findViewById(R.id.description);
+        Location = findViewById(R.id.location);
         reference = FirebaseDatabase.getInstance().getReference();
 
         btncancel.setOnClickListener(new View.OnClickListener() {
@@ -56,7 +57,8 @@ public class CreatePost extends AppCompatActivity {
     {
         String title = Title.getText().toString();
         String description = Description.getText().toString();
-        Model helperclass = new Model(title,description);
+        String location = Location.getText().toString();
+        Model helperclass = new Model(title,description,location);
         reference.child("Posts").push().setValue(helperclass);
                 reference.child("user_post").child(mauth.getCurrentUser().getUid().toString()).push().setValue(helperclass);
                 //.addOnCompleteListener(new OnCompleteListener<Void>() {

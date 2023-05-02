@@ -32,10 +32,12 @@
         <activity
             android:name=".MapsActivity"
             android:exported="false"
-            android:label="@string/title_activity_maps" />
+            android:label="@string/title_activity_maps"
+            android:parentActivityName=".DisplayPost"/>
         <activity
-            android:name=".Registration_2"
-            android:exported="false" />
+            android:name=".CreatePost"
+            android:exported="false"
+            android:parentActivityName=".Customized_feed"/>
         <activity
             android:name=".Registration_1"
             android:exported="false"
@@ -65,6 +67,10 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <meta-data
+            android:name="preloaded_fonts"
+            android:resource="@array/preloaded_fonts" />
     </application>
 
 </manifest>

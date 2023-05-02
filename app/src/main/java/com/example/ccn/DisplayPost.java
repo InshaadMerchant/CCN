@@ -8,8 +8,10 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.view.View;
 import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.ImageButton;
@@ -42,11 +44,23 @@ public class DisplayPost extends AppCompatActivity {
 
         String title = getIntent().getStringExtra("TITLE");
         String contents = getIntent().getStringExtra("CONTENTS");
+        String location = getIntent().getStringExtra("LOCATION");
 
         TextView title_name = findViewById(R.id.title_text);
         TextView total_contents = findViewById(R.id.contents);
+        Button location_name = findViewById(R.id.location);
 
         title_name.setText(title);
         total_contents.setText(contents);
+        location_name.setText(location);
+
+        location_name.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(DisplayPost.this, MapsActivity.class);
+                intent.putExtra("LOCATION", location);
+                startActivity(intent);
+            }
+        });
     }
 }
