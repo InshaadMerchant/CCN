@@ -18,6 +18,7 @@ import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.Toast;
+import android.widget.Toolbar;
 
 import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.auth.FirebaseAuth;
@@ -29,10 +30,12 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 
-public class Customized_feed extends AppCompatActivity implements PostInterface{
+public class Customized_feed extends AppCompatActivity implements PostInterface, NavigationView.OnNavigationItemSelectedListener {
 
     DrawerLayout drawerLayout;
     NavigationView navigationView;
+    String uid, name, username, description;
+    Toolbar toolbar;
     ActionBarDrawerToggle drawerToggle;
 
     private RecyclerView recyclerView;
@@ -46,22 +49,7 @@ public class Customized_feed extends AppCompatActivity implements PostInterface{
     public ImageButton postButton;
     private SearchView searchView;
 
-    @Override
-    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-        if (drawerToggle.onOptionsItemSelected(item)) {
-            return true;
-        }
-        return super.onOptionsItemSelected(item);
-    }
 
-    @Override
-    public void onBackPressed() {
-        if (drawerLayout.isDrawerOpen(GravityCompat.START)) {
-            drawerLayout.closeDrawer(GravityCompat.START);
-        } else {
-            super.onBackPressed();
-        }
-    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -69,6 +57,12 @@ public class Customized_feed extends AppCompatActivity implements PostInterface{
         setContentView(R.layout.activity_customized_feed);
         searchView = findViewById(R.id.search);
         searchView.clearFocus();
+        Intent intent  = getIntent();
+        uid = mAuth.getCurrentUser().getUid();
+        //uid = intent.getStringExtra("uid");
+        name = intent.getStringExtra("name");
+        username = intent.getStringExtra("username");
+        description = intent.getStringExtra("description");
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
             public boolean onQueryTextSubmit(String query) {
@@ -97,48 +91,14 @@ public class Customized_feed extends AppCompatActivity implements PostInterface{
 
         drawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
         navigationView = findViewById(R.id.nav_view);
-        drawerToggle = new ActionBarDrawerToggle(Customized_feed.this, drawerLayout, R.string.open, R.string.close);
+        drawerToggle = new ActionBarDrawerToggle(this, drawerLayout, R.string.open, R.string.close);
+        drawerToggle.setDrawerIndicatorEnabled(true);
         drawerLayout.addDrawerListener(drawerToggle);
+        navigationView.bringToFront();
         drawerToggle.syncState();
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-
-        navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
-            @SuppressLint("NonConstantResourceId")
-            @Override
-            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-                switch (item.getItemId()) {
-                    case R.id.home: {
-                        Toast.makeText(Customized_feed.this, "home selected", Toast.LENGTH_SHORT).show();
-                        break;
-                    }
-                    case R.id.add_post: {
-                        Toast.makeText(Customized_feed.this, "Add Post Selected", Toast.LENGTH_SHORT).show();
-                        Intent intent = new Intent(Customized_feed.this,Registration_1.class);
-                        startActivity(intent);
-                        break;
-                    }
-                    case R.id.about: {
-                        Toast.makeText(Customized_feed.this, "about selected", Toast.LENGTH_SHORT).show();
-                        //Intent intent = new Intent(MainActivity.this, profile.class);
-                        //startActivity(intent);
-                        break;
-                    }
-                    case R.id.logout: {
-                        Toast.makeText(Customized_feed.this, "logout selected", Toast.LENGTH_SHORT).show();
-                        //Intent intent = new Intent(MainActivity.this, login.class);
-                        //startActivity(intent);
-                        break;
-                    }
-                    case R.id.share: {
-                        Toast.makeText(Customized_feed.this, "share selected", Toast.LENGTH_SHORT).show();
-                        break;
-                    }
-                }
-                return false;
-            }
-        });
-
+        navigationView.setNavigationItemSelectedListener(this);
 
         root.addValueEventListener(new ValueEventListener() {
             @Override
@@ -158,13 +118,13 @@ public class Customized_feed extends AppCompatActivity implements PostInterface{
         });
 
         postButton = (ImageButton) findViewById(R.id.post_button);
-        /*postButton.setOnClickListener(new View.OnClickListener() {
+        postButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(Customized_feed.this, CreatingPost.class);
+                Intent intent = new Intent(Customized_feed.this, CreatePost.class);
                 startActivity(intent);
             }
-        });*/
+        });
     }
 
     private void filterList(String text) {
@@ -191,5 +151,56 @@ public class Customized_feed extends AppCompatActivity implements PostInterface{
         intent.putExtra("CONTENTS", model.getContents());
 
         startActivity(intent);
+    }
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        return drawerToggle.onOptionsItemSelected(item) || super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    public void onBackPressed() {
+        if (drawerLayout.isDrawerOpen(GravityCompat.START)) {
+            drawerLayout.closeDrawer(GravityCompat.START);
+        } else {
+            super.onBackPressed();
+        }
+    }
+
+    @Override
+    public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+        switch (item.getItemId()){
+                    case R.id.home: {
+                        Toast.makeText(Customized_feed.this, "Home selected", Toast.LENGTH_SHORT).show();
+                        Intent intent = new Intent(Customized_feed.this,Customized_feed.class);
+                        startActivity(intent);
+                        break;
+                    }
+                    case R.id.add_post: {
+                        Toast.makeText(Customized_feed.this, "Add Post Selected", Toast.LENGTH_SHORT).show();
+                        Intent intent = new Intent(Customized_feed.this,CreatePost.class);
+                        startActivity(intent);
+                        break;
+                    }
+                    case R.id.about: {
+                        Toast.makeText(Customized_feed.this, "Opening Profile Manager", Toast.LENGTH_SHORT).show();
+                        Intent intent = new Intent(Customized_feed.this, Profile_Manager.class);
+                        intent.putExtra("name",name);
+                        intent.putExtra("username",username);
+                        intent.putExtra("description",description);
+                        startActivity(intent);
+                        break;
+                    }
+                    case R.id.logout: {
+                        Toast.makeText(Customized_feed.this, "Log-Out Success", Toast.LENGTH_SHORT).show();
+                        Intent intent = new Intent(Customized_feed.this, Login.class);
+                        startActivity(intent);
+                        break;
+                    }
+                    case R.id.share: {
+                        Toast.makeText(Customized_feed.this, "share selected", Toast.LENGTH_SHORT).show();
+                        break;
+                    }
+        }
+        return true;
     }
 }

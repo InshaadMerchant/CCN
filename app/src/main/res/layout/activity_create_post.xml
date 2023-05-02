@@ -22,7 +22,7 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="450dp"
+            android:layout_height="600dp"
             android:layout_gravity="center_horizontal"
             android:orientation="vertical"
             android:padding="24dp">
@@ -31,41 +31,69 @@
                 android:id="@+id/registrationText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Post"
+                android:text="Create A Post"
                 android:textAlignment="center"
                 android:textColor="@color/purple_700"
                 android:textSize="36sp"
                 android:textStyle="bold" />
 
-
-            <TextView
-                android:id="@+id/title_text"
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/title_post"
                 android:layout_width="match_parent"
                 android:layout_height="80dp"
                 android:layout_marginTop="30dp"
                 android:background="@drawable/custom_edittext"
+                android:drawableLeft="@drawable/baseline_mode_edit_24"
                 android:drawablePadding="8dp"
-                android:fontFamily="@font/arsenal_bold"
-                android:padding="8dp"
-                android:textColor="@color/black"
-                android:textColorHighlight="@color/cardview_dark_background"
-                android:textSize="8.5pt"
-                />
-
-            <TextView
-                android:id="@+id/contents"
-                android:layout_width="match_parent"
-                android:layout_height="180dp"
-                android:fontFamily="@font/arsenal_bold"
-                android:layout_marginTop="10dp"
-                android:background="@drawable/custom_edittext"
-                android:textSize="8pt"
-                android:drawablePadding="8dp"
+                android:hint="Title"
                 android:padding="8dp"
                 android:textColor="@color/black"
                 android:textColorHighlight="@color/cardview_dark_background" />
 
 
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/description"
+                android:layout_width="match_parent"
+                android:layout_height="180dp"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/custom_edittext"
+                android:drawableLeft="@drawable/baseline_message_24"
+                android:drawablePadding="8dp"
+                android:hint="Add a desciption."
+                android:padding="8dp"
+                android:textColor="@color/black"
+                android:textColorHighlight="@color/cardview_dark_background" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/buttonLayout"
+                >
+
+                <Button
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="60dp"
+                    android:layout_weight="1"
+                    android:layout_marginEnd="5dp"
+                    android:shadowColor="@color/UTA_BLUE"
+                    android:textAllCaps="true"
+                    android:id="@+id/cancelbutton"
+                    android:text="Cancel" />
+
+                <Button
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="5dp"
+                    android:layout_marginTop="60dp"
+                    android:layout_weight="1"
+                    android:id="@+id/publishButton"
+                    android:shadowColor="@color/UTA_BLUE"
+                    android:textAllCaps="true"
+                    android:text="Publish" />
+
+            </LinearLayout>
         </LinearLayout>
     </androidx.cardview.widget.CardView>
 

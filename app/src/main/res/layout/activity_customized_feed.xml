@@ -5,7 +5,10 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:id="@+id/drawer_layout"
-    tools:context=".MainActivity">
+    android:background="@color/Azureish_White"
+    tools:context=".MainActivity"
+    android:fitsSystemWindows="true"
+    tools:openDrawer="start">
 
     <com.google.android.material.navigation.NavigationView
         android:layout_width="wrap_content"
@@ -14,11 +17,15 @@
         app:menu="@menu/navigationbar"
         android:id="@+id/nav_view"
         android:layout_gravity="start" />
+        <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:gravity="right"
+        android:id="@+id/Relativelayout"
         android:orientation="vertical">
 
         <androidx.appcompat.widget.SearchView
@@ -44,13 +51,14 @@
             android:layout_alignParentEnd="true"
             android:layout_marginTop="650dp"
             android:layout_marginEnd="12dp"
-            android:background="@color/UTA_BLUE"
+            android:background="#654E92"
             android:baselineAlignBottom="false"
             android:focusableInTouchMode="true"
             android:scaleType="centerCrop"
             android:src="@drawable/baseline_post_add_24" />
 
     </RelativeLayout>
+    </ScrollView>
 
 </androidx.drawerlayout.widget.DrawerLayout>
 
