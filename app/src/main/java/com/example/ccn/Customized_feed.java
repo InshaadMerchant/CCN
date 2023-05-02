@@ -101,12 +101,14 @@ public class Customized_feed extends AppCompatActivity {
                 switch (item.getItemId()) {
                     case R.id.home: {
                         Toast.makeText(Customized_feed.this, "home selected", Toast.LENGTH_SHORT).show();
+                        Intent intent = new Intent(Customized_feed.this, Customized_feed.class);
+                        startActivity(intent);
                         break;
                     }
                     case R.id.add_post: {
                         Toast.makeText(Customized_feed.this, "Add Post Selected", Toast.LENGTH_SHORT).show();
-                        //Intent intent = new Intent(MainActivity.this, creating_post.class);
-                        //startActivity(intent);
+                        Intent intent = new Intent(Customized_feed.this, CreatingPost.class);
+                        startActivity(intent);
                         break;
                     }
                     case R.id.about: {
@@ -117,8 +119,8 @@ public class Customized_feed extends AppCompatActivity {
                     }
                     case R.id.logout: {
                         Toast.makeText(Customized_feed.this, "logout selected", Toast.LENGTH_SHORT).show();
-                        //Intent intent = new Intent(MainActivity.this, login.class);
-                        //startActivity(intent);
+                        Intent intent = new Intent(Customized_feed.this, Login.class);
+                        startActivity(intent);
                         break;
                     }
                     case R.id.share: {
