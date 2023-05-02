@@ -36,12 +36,12 @@ public class Navigation_bar extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_customized_feed);
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
-        drawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
-        navigationView = findViewById(R.id.nav_view);
-        drawerToggle = new ActionBarDrawerToggle(Navigation_bar.this,drawerLayout,R.string.open,R.string.close);
-        drawerLayout.addDrawerListener(drawerToggle);
-        drawerToggle.syncState();
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+//        drawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
+//        navigationView = findViewById(R.id.nav_view);
+//        drawerToggle = new ActionBarDrawerToggle(Navigation_bar.this,drawerLayout,R.string.open,R.string.close);
+//        drawerLayout.addDrawerListener(drawerToggle);
+//        drawerToggle.syncState();
+//        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
 
 

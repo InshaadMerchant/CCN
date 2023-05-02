@@ -160,7 +160,6 @@ public class Registration_1 extends AppCompatActivity {
                                         return;
                                     }
                                 });
-
             }
         });
 
