@@ -67,18 +67,6 @@ public class Customized_feed extends AppCompatActivity implements PostInterface{
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_customized_feed);
-        Model firspost = new Model("This is a title", "Dorime, Interimo adapare dorime ameno ameno ");
-        Model secondpost = new Model("Thvsdvs", "Dopare dorime ameno ameno ");
-        Model Thirdpost = new Model("This isstle", "Dorime, Interimo ");
-        Model fourthpost = new Model("This svd", "vsd'vslfv's;apare dorime ameno ameno ");
-        Model fifthpost = new Model("This sfe", "Dorime,  ");
-        Model post = new Model("This sfe", "Dorime,  ");
-        root.push().setValue(firspost);
-        root.push().setValue(secondpost);
-        root.push().setValue(Thirdpost);
-        root.push().setValue(fourthpost);
-        root.push().setValue(fifthpost);
-        root.push().setValue(post);
         searchView = findViewById(R.id.search);
         searchView.clearFocus();
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
@@ -94,6 +82,9 @@ public class Customized_feed extends AppCompatActivity implements PostInterface{
             }
         });
 
+        Intent intent = new Intent(Customized_feed.this, MapsActivity.class);
+        startActivity(intent);
+
         recyclerView = findViewById(R.id.recyclerview);
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
@@ -103,6 +94,7 @@ public class Customized_feed extends AppCompatActivity implements PostInterface{
 
         recyclerView.setAdapter(adapter);
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
+
         drawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
         navigationView = findViewById(R.id.nav_view);
         drawerToggle = new ActionBarDrawerToggle(Customized_feed.this, drawerLayout, R.string.open, R.string.close);
