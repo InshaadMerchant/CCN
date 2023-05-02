@@ -15,31 +15,40 @@
         android:id="@+id/nav_view"
         android:layout_gravity="start" />
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recyclerview"
-        android:layout_width="409dp"
-        android:layout_height="729dp"
-        tools:layout_editor_absoluteX="1dp"
-        tools:layout_editor_absoluteY="1dp" />
-
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:gravity="right">
+        android:gravity="right"
+        android:orientation="vertical">
+
+        <androidx.appcompat.widget.SearchView
+            android:id="@+id/search"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            app:queryHint="Search"
+            app:iconifiedByDefault="false" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerview"
+            android:layout_width="409dp"
+            android:layout_height="729dp"
+            android:layout_below="@id/search"
+            tools:layout_editor_absoluteX="1dp"
+            tools:layout_editor_absoluteY="1dp" />
 
         <androidx.appcompat.widget.AppCompatImageButton
             android:id="@+id/post_button"
             android:layout_width="48dp"
             android:layout_height="48dp"
             android:layout_alignParentEnd="true"
-            android:src="@drawable/baseline_post_add_24"
-            android:scaleType="centerCrop"
             android:layout_marginTop="650dp"
             android:layout_marginEnd="12dp"
             android:background="@color/UTA_BLUE"
             android:baselineAlignBottom="false"
-            android:focusableInTouchMode="true" />
+            android:focusableInTouchMode="true"
+            android:scaleType="centerCrop"
+            android:src="@drawable/baseline_post_add_24" />
 
     </RelativeLayout>
 

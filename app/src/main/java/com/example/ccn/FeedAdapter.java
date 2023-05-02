@@ -18,6 +18,11 @@ public class FeedAdapter extends RecyclerView.Adapter<FeedAdapter.MyViewHolder> 
     ArrayList<Model> mlist;
     Context context;
 
+    public void setFilteredList(ArrayList<Model> filterList){
+        this.mlist = filterList;
+        notifyDataSetChanged();
+    }
+
     public FeedAdapter(Context context, ArrayList<Model> mlist, PostInterface postInterface) {
         this.mlist = mlist;
         this.context = context;
@@ -55,6 +60,7 @@ public class FeedAdapter extends RecyclerView.Adapter<FeedAdapter.MyViewHolder> 
 
             title = itemView.findViewById(R.id.title_text);
             contents = itemView.findViewById(R.id.contents);
+
 
             contents.setOnClickListener(new View.OnClickListener() {
                 @Override

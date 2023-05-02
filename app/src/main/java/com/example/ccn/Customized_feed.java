@@ -3,6 +3,7 @@ package com.example.ccn;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.SearchView;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -43,6 +44,7 @@ public class Customized_feed extends AppCompatActivity implements PostInterface{
     private FeedAdapter adapter;
     private ArrayList<Model> list;
     public ImageButton postButton;
+    private SearchView searchView;
 
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
@@ -77,6 +79,21 @@ public class Customized_feed extends AppCompatActivity implements PostInterface{
         root.push().setValue(fourthpost);
         root.push().setValue(fifthpost);
         root.push().setValue(post);
+        searchView = findViewById(R.id.search);
+        searchView.clearFocus();
+        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+                return false;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String newText) {
+                filterList(newText);
+                return true;
+            }
+        });
+
         recyclerView = findViewById(R.id.recyclerview);
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
@@ -148,20 +165,6 @@ public class Customized_feed extends AppCompatActivity implements PostInterface{
             }
         });
 
-
-        /*edit.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                //go to edit post
-            }
-        });
-
-        delete.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                //go to delete post
-            }
-        });*/
         postButton = (ImageButton) findViewById(R.id.post_button);
         /*postButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -170,6 +173,21 @@ public class Customized_feed extends AppCompatActivity implements PostInterface{
                 startActivity(intent);
             }
         });*/
+    }
+
+    private void filterList(String text) {
+        ArrayList<Model> filteredList = new ArrayList<>();
+        for(Model model:list ) {
+            if(model.getTitle().toLowerCase().contains(text.toLowerCase())) {
+                filteredList.add(model);
+            }
+        }
+
+        if(filteredList.isEmpty()) {
+            Toast.makeText(this, "No matches found", Toast.LENGTH_SHORT).show();
+        } else{
+            adapter.setFilteredList(filteredList);
+        }
     }
 
     @Override
