@@ -121,7 +121,7 @@ public class Registration_1 extends AppCompatActivity {
                                         }
                                         if (already_registered) {
                                             Toast.makeText(Registration_1.this, "An account is already registered  under this id. Please sign in", Toast.LENGTH_SHORT).show();
-                                            Intent intent = new Intent(Registration_1.this, Profile_Manager.class);
+                                            Intent intent = new Intent(Registration_1.this, Customized_feed.class);
                                             intent.putExtra("uid",mAuth.getCurrentUser().getUid().toString());
                                             intent.putExtra("name",name);
                                             intent.putExtra("username",username);
@@ -132,7 +132,7 @@ public class Registration_1 extends AppCompatActivity {
                                             root_ref.child("users").child(mAuth.getCurrentUser().getUid()).setValue(new_user);
                                             user_idref.child(mAuth.getCurrentUser().getUid()).setValue(mAuth.getCurrentUser().getUid().toString());
                                             Toast.makeText(Registration_1.this, "USER REGISTERED SUCCESSFULLY", Toast.LENGTH_SHORT).show();
-                                            Intent intent = new Intent(Registration_1.this, Profile_Manager.class);
+                                            Intent intent = new Intent(Registration_1.this, Customized_feed.class);
                                             intent.putExtra("uid",mAuth.getCurrentUser().getUid().toString());
                                             intent.putExtra("name",name);
                                             intent.putExtra("username",username);

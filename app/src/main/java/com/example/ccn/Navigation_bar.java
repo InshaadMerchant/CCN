@@ -7,6 +7,7 @@ import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.WindowManager;
@@ -66,8 +67,8 @@ public class Navigation_bar extends AppCompatActivity {
                     case R.id.about:
                     {
                         Toast.makeText(Navigation_bar.this, "about selected", Toast.LENGTH_SHORT).show();
-                        //Intent intent = new Intent(MainActivity.this, profile.class);
-                        //startActivity(intent);
+                        Intent intent = new Intent(Navigation_bar.this, Profile_Manager.class);
+                        startActivity(intent);
                         break;
                     }
                     case R.id.logout:

@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:id="@+id/drawer_layout"
+    android:background="@color/Azureish_White"
     tools:context=".MainActivity">
 
     <com.google.android.material.navigation.NavigationView
@@ -44,7 +45,7 @@
             android:layout_alignParentEnd="true"
             android:layout_marginTop="650dp"
             android:layout_marginEnd="12dp"
-            android:background="@color/UTA_BLUE"
+            android:background="#00FFFFFF"
             android:baselineAlignBottom="false"
             android:focusableInTouchMode="true"
             android:scaleType="centerCrop"

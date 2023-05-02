@@ -80,7 +80,7 @@
                     android:shadowColor="@color/UTA_BLUE"
                     android:textAllCaps="true"
                     android:id="@+id/cancelbutton"
-                    android:text="Cancle" />
+                    android:text="Cancel" />
 
                 <Button
                     android:layout_width="0dp"
