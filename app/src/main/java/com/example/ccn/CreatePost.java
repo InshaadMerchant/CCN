@@ -6,6 +6,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
+import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -20,7 +22,7 @@ public class CreatePost extends AppCompatActivity {
     Button btnpublish, btncancel;
     TextInputEditText Title, Description;
     DatabaseReference reference;
-    FirebaseAuth mauth;
+    FirebaseAuth mauth= FirebaseAuth.getInstance();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -43,6 +45,9 @@ public class CreatePost extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Insert();
+                Intent intent = new Intent(CreatePost.this, Customized_feed.class);
+                startActivity(intent);
+                finish();
             }
         });
 
@@ -51,20 +56,21 @@ public class CreatePost extends AppCompatActivity {
     {
         String title = Title.getText().toString();
         String description = Description.getText().toString();
-        CreatePostHelper helperclass = new CreatePostHelper(title,description);
-        reference.child("Posts").child(mauth.getCurrentUser().getUid().toString()).setValue(helperclass)
-                .addOnCompleteListener(new OnCompleteListener<Void>() {
-                    @Override
-                    public void onComplete(@NonNull Task<Void> task) {
-                        if(task.isSuccessful())
-                        {
+        Model helperclass = new Model(title,description);
+        reference.child("Posts").child(mauth.getCurrentUser().getUid().toString()).setValue(helperclass);
+                reference.child("user_post").child(mauth.getCurrentUser().getUid().toString()).push().setValue(helperclass);
+                //.addOnCompleteListener(new OnCompleteListener<Void>() {
+                  //  @Override
+                    //public void onComplete(@NonNull Task<Void> task) {
+                      //  if(task.isSuccessful())
+                        //{
 
 
-                        }
+                        //}
                     }
-                });
+                //});
 
 
-    }
+    //}
 
 }
