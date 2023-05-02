@@ -57,9 +57,11 @@ public class DisplayPost extends AppCompatActivity {
         location_name.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(DisplayPost.this, MapsActivity.class);
-                intent.putExtra("LOCATION", location);
-                startActivity(intent);
+                if(location != null) {
+                    Intent intent = new Intent(DisplayPost.this, MapsActivity.class);
+                    intent.putExtra("LOCATION", location);
+                    startActivity(intent);
+                }
             }
         });
     }
