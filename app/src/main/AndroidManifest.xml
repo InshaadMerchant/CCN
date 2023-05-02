@@ -35,6 +35,10 @@
             android:label="@string/title_activity_maps"
             android:parentActivityName=".DisplayPost"/>
         <activity
+            android:name=".Profile_Manager"
+            android:exported="false"
+            android:parentActivityName=".Customized_feed" />
+        <activity
             android:name=".CreatePost"
             android:exported="false"
             android:parentActivityName=".Customized_feed"/>
