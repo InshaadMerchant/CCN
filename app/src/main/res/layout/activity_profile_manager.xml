@@ -76,13 +76,13 @@
                         android:src="@drawable/ic_action_name" />
 
                     <TextView
-                        android:id="@+id/postlabel"
+                        android:id="@+id/number_post"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_centerInParent="true"
                         android:fontFamily="@font/arsenal_bold"
                         android:includeFontPadding="false"
-                        android:text="4"
+                        android:text="0"
                         android:textColor="@color/black"
                         android:textSize="20sp" />
 
@@ -90,7 +90,7 @@
                         android:id="@+id/numpostdesc"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_below="@id/postlabel"
+                        android:layout_below="@id/number_post"
                         android:layout_centerHorizontal="true"
                         android:fontFamily="@font/arsenal_bold"
                         android:includeFontPadding="false"

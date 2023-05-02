@@ -8,8 +8,7 @@ public class RegistrationHelperClass {
         this.username = username;
         this.description = description;
         this.email = email;
-        this.security_question = security_question;
-        this.securityquestion_answer = securityquestion_answer;
+
     }
 
     public RegistrationHelperClass() {
@@ -47,19 +46,7 @@ public class RegistrationHelperClass {
         this.email = email;
     }
 
-    public String getSecurity_question() {
-        return security_question;
-    }
 
-    public void setSecurity_question(String security_question) {
-        this.security_question = security_question;
-    }
 
-    public String getSecurityquestion_answer() {
-        return securityquestion_answer;
-    }
 
-    public void setSecurityquestion_answer(String securityquestion_answer) {
-        this.securityquestion_answer = securityquestion_answer;
-    }
 }
