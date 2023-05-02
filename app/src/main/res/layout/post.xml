@@ -13,16 +13,14 @@
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="UsersNamed"
-            android:layout_marginStart="20dp"
-            android:backgroundTint="@color/white"
-            android:id="@+id/user_name"
-            android:textStyle="bold"
-            android:textSize="10sp"
-            android:textColor="@color/black"/>
+<!--        <Button-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:text="UsersNamed"-->
+<!--            android:layout_marginStart="20dp"-->
+<!--            android:id="@+id/user_name"-->
+<!--            android:textStyle="bold"-->
+<!--            android:textSize="10sp" />-->
 
         <TextView android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -38,13 +36,11 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Study"
-            android:backgroundTint="@color/white"
-            android:layout_below="@id/user_name"
+            android:layout_below="@id/title_text"
             android:layout_marginStart="20dp"
             android:id="@+id/contents"
             android:textStyle="bold"
-            android:textSize="18sp"
-            android:textColor="@color/black"/>
+            android:textSize="18sp" />
         
     </RelativeLayout>
 
