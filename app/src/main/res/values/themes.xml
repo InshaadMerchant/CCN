@@ -20,7 +20,7 @@
 <!--        &lt;!&ndash; <item name="colorPrimary">@color/my_light_primary</item> &ndash;&gt;-->
     </style>
     <style name="temp.CCN" parent="Theme.MaterialComponents.DayNight">
-        <item name="colorPrimary">@color/UTA_BLUE</item>
+        <item name="colorPrimary">#654E92</item>
 
     </style>
 </resources>

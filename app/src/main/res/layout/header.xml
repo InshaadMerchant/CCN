@@ -3,9 +3,8 @@
     android:layout_width="match_parent"
     android:layout_height="200dp"
     android:padding="20dp"
-    android:background="@color/UTA_BLUE"
+    android:background="#654E92"
     android:orientation="vertical"
-
     android:gravity="bottom" >
 
     <TextView
@@ -14,7 +13,8 @@
         android:text="Team 8"
         android:textStyle="bold"
         android:textSize="20dp"
-        android:textColor="@color/UTA_BLUE"/>
+
+        android:textColor="@color/white"/>
 
     <TextView
         android:layout_width="wrap_content"

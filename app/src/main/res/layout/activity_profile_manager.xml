@@ -29,10 +29,10 @@
             android:layout_centerVertical="true"
             android:layout_marginStart="10dp"
             android:layout_toEndOf="@+id/profile_image"
-            android:fontFamily="@font/bungee_inline"
+            android:fontFamily="@font/arsenal_bold"
             android:id="@+id/name_label"
             android:text="Athrva Arora"
-            android:textSize="20sp"
+            android:textSize="30sp"
             android:includeFontPadding="false"/>
         <TextView
 
@@ -80,7 +80,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_centerInParent="true"
-                        android:fontFamily="@font/bungee_inline"
+                        android:fontFamily="@font/arsenal_bold"
                         android:includeFontPadding="false"
                         android:text="4"
                         android:textColor="@color/black"
@@ -92,8 +92,10 @@
                         android:layout_height="wrap_content"
                         android:layout_below="@id/postlabel"
                         android:layout_centerHorizontal="true"
+                        android:fontFamily="@font/arsenal_bold"
                         android:includeFontPadding="false"
                         android:text="Posts"
+                        android:textStyle="bold"
                         android:textSize="20sp" />
                 </RelativeLayout>
             </com.google.android.material.card.MaterialCardView>
@@ -113,24 +115,27 @@
                         android:layout_height="30dp"
                         android:layout_width="30dp"
                         android:src="@drawable/baseline_post_add_24" />
+
                     <TextView
-                        android:fontFamily="@font/bungee_inline"
                         android:id="@+id/Privilages"
-                        android:includeFontPadding="false"
-                        android:layout_centerInParent="true"
-                        android:layout_height="wrap_content"
                         android:layout_width="wrap_content"
-                        android:textColor="@color/black"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:fontFamily="@font/arsenal_bold"
+                        android:includeFontPadding="false"
                         android:text="User"
+                        android:textColor="@color/black"
                         android:textSize="20sp" />
                     <TextView
                         android:id="@+id/userprivilages"
                         android:includeFontPadding="false"
                         android:layout_below="@id/Privilages"
                         android:layout_centerHorizontal="true"
+                        android:fontFamily="@font/arsenal_bold"
                         android:layout_height="wrap_content"
                         android:layout_width="wrap_content"
                         android:text="Privilages"
+                        android:textStyle="bold"
                         android:textSize="20sp" />
                 </RelativeLayout>
             </com.google.android.material.card.MaterialCardView>
@@ -190,12 +195,12 @@
         <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:fontFamily="@font/bungee_inline"
+            android:fontFamily="@font/arsenal_bold"
+            android:textAllCaps="true"
             android:onClick="update"
             android:text="Update">
 
         </Button>
-
 
 
     </LinearLayout>

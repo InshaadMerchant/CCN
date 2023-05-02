@@ -37,6 +37,7 @@
                 android:textSize="36sp"
                 android:textStyle="bold" />
 
+
             <TextView
                 android:id="@+id/title_text"
                 android:layout_width="match_parent"
@@ -44,18 +45,21 @@
                 android:layout_marginTop="30dp"
                 android:background="@drawable/custom_edittext"
                 android:drawablePadding="8dp"
+                android:fontFamily="@font/arsenal_bold"
                 android:padding="8dp"
                 android:textColor="@color/black"
-                android:textColorHighlight="@color/cardview_dark_background" />
-
-
+                android:textColorHighlight="@color/cardview_dark_background"
+                android:textSize="8.5pt"
+                />
 
             <TextView
                 android:id="@+id/contents"
                 android:layout_width="match_parent"
                 android:layout_height="180dp"
+                android:fontFamily="@font/arsenal_bold"
                 android:layout_marginTop="10dp"
                 android:background="@drawable/custom_edittext"
+                android:textSize="8pt"
                 android:drawablePadding="8dp"
                 android:padding="8dp"
                 android:textColor="@color/black"

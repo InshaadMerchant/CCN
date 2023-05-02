@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:id="@+id/drawer_layout"
     android:background="@color/Azureish_White"
-    tools:context=".MainActivity">
+    tools:context=".Customized_feed">
 
     <com.google.android.material.navigation.NavigationView
         android:layout_width="wrap_content"
@@ -45,7 +45,7 @@
             android:layout_alignParentEnd="true"
             android:layout_marginTop="650dp"
             android:layout_marginEnd="12dp"
-            android:background="#00FFFFFF"
+            android:background="#654E92"
             android:baselineAlignBottom="false"
             android:focusableInTouchMode="true"
             android:scaleType="centerCrop"
