@@ -28,6 +28,10 @@
             android:theme="@style/temp.CCN"
             android:exported="false" />
         <activity
+            android:name=".DisplayPost"
+            android:exported="false"
+            android:parentActivityName=".Customized_feed" />
+        <activity
             android:name=".Navigation_bar"
             android:parentActivityName=".Customized_feed"
             android:theme="@style/temp.CCN"

@@ -8,47 +8,44 @@
     android:padding="10dp"
     android:layout_margin="10dp">
     
-    <LinearLayout
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical">
-        
-        
-        <LinearLayout
-            android:layout_width="match_parent"
+
+        <Button
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:gravity="center_horizontal"
-            android:orientation="horizontal">
+            android:text="UsersNamed"
+            android:layout_marginStart="20dp"
+            android:backgroundTint="@color/white"
+            android:id="@+id/user_name"
+            android:textStyle="bold"
+            android:textSize="10sp"
+            android:textColor="@color/black"/>
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Title"
-                android:layout_marginStart="20dp"
-                android:id="@+id/title_text"
-                android:textStyle="bold"
-                android:textSize="20sp"/>
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
+        <TextView android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:text="Title"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="10dp"
+            android:layout_marginStart="20dp"
+            android:id="@+id/title_text"
+            android:textStyle="bold"
+            android:textSize="20sp"/>
 
-            <Button
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Study"
-                android:layout_marginStart="20dp"
-                android:id="@+id/contents"
-                android:textStyle="bold"
-                android:textSize="18sp"/>
-
-        </LinearLayout>
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Study"
+            android:backgroundTint="@color/white"
+            android:layout_below="@id/user_name"
+            android:layout_marginStart="20dp"
+            android:id="@+id/contents"
+            android:textStyle="bold"
+            android:textSize="18sp"
+            android:textColor="@color/black"/>
         
-        
-        
-    </LinearLayout>
+    </RelativeLayout>
 
 </androidx.cardview.widget.CardView>

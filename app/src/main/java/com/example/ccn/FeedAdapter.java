@@ -1,6 +1,7 @@
 package com.example.ccn;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -47,11 +48,21 @@ public class FeedAdapter extends RecyclerView.Adapter<FeedAdapter.MyViewHolder> 
         TextView title;
         Button contents;
 
+
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
 
             title = itemView.findViewById(R.id.title_text);
             contents = itemView.findViewById(R.id.contents);
+
+            contents.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent intent = new Intent(v.getContext(), DisplayPost.class);
+                    v.getContext().startActivity(intent);
+                }
+            });
         }
     }
 }
+

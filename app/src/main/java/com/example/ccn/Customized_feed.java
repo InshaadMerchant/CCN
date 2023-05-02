@@ -105,8 +105,8 @@ public class Customized_feed extends AppCompatActivity {
                     }
                     case R.id.add_post: {
                         Toast.makeText(Customized_feed.this, "Add Post Selected", Toast.LENGTH_SHORT).show();
-                        //Intent intent = new Intent(MainActivity.this, creating_post.class);
-                        //startActivity(intent);
+                        Intent intent = new Intent(Customized_feed.this,Registration_1.class);
+                        startActivity(intent);
                         break;
                     }
                     case R.id.about: {
@@ -171,4 +171,11 @@ public class Customized_feed extends AppCompatActivity {
             }
         });*/
     }
+
+    //@Override
+    /*public void onButtonClick(int position) {
+        Intent intent = new Intent(Customized_feed.this, DisplayPost.class);
+
+        intent.putExtra("TITLE", Model.getTitle());
+    }*/
 }
